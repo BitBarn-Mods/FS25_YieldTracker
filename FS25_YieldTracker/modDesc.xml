@@ -10,67 +10,74 @@
 <description>
 <en>
 <![CDATA[
-**Note:** This mod currently supports **Singleplayer** mode only on **PC/Mac**.
+Note: This mod currently supports Singleplayer mode only on PC/Mac.
 
-**YieldTracker** helps you keep track of your harvests across different fields and years. It logs total yields by crop (fill type), field number, and year, so you can easily monitor your farm’s performance over time.
+YieldTracker helps you keep track of your harvests across different fields and years. It logs total yields by crop (fill type), field number, and year, so you can easily monitor your farm’s performance over time.
 
 Works with both AI workers and contract jobs.
 
-**Supported Fill Types (18):**
-- Wheat  
-- Barley  
-- Oat  
-- Canola  
-- Corn  
-- Soybeans  
-- Sorghum  
-- Sunflowers  
-- Cotton  
-- Rice  
-- Long Grain Rice  
-- Peas  
-- Spinach  
-- Green Beans  
-- Chaff  
-- Grass *(baler only)*  
-- Straw *(baler only)*  
-- Hay *(baler only)*  
+Supported Fill Types (18):
+- Barley
+- Canola
+- Chaff
+- Corn
+- Cotton
+- Grass (baler only)
+- Green Beans
+- Hay (baler only)
+- Long Grain Rice
+- Oat
+- Peas
+- Rice
+- Sorghum
+- Soybeans
+- Spinach
+- Straw (baler only)
+- Sunflowers
+- Wheat
 
 If you're looking for a simple way to monitor field productivity and plan better crop rotations, YieldTracker has you covered.
+
+Feedback or issues?
+Report bugs or contribute on GitHub: https://github.com/BitBarn-Mods/FS25_YieldTracker
 ]]>
 </en>
+
 <de>
 <![CDATA[
-**Hinweis:** Dieses Mod ist derzeit nur im **Einzelspielermodus** auf **PC/Mac** verfügbar.
+Hinweis: Dieses Mod unterstützt derzeit nur den Einzelspielermodus auf PC/Mac.
 
-**YieldTracker** hilft dir dabei, deine Ernten über verschiedene Felder und Jahre hinweg im Blick zu behalten. Es protokolliert die Gesamterträge nach Fruchtart (Fill Type), Feldnummer und Jahr, sodass du die Leistung deines Betriebs einfach nachverfolgen kannst.
+YieldTracker hilft dir, deine Ernteerträge über verschiedene Felder und Jahre hinweg zu verfolgen. Es protokolliert die Gesamterträge nach Fruchtart (Fülltyp), Feldnummer und Jahr, sodass du die Leistung deiner Felder im Blick behalten kannst.
 
-Funktioniert mit Helfern und bei Auftragsarbeiten.
+Funktioniert sowohl mit Helfern als auch mit Aufträgen.
 
-**Unterstützte Fruchttypen (18):**
-- Weizen  
-- Gerste  
-- Hafer  
-- Raps  
-- Mais  
-- Sojabohnen  
-- Sorghumhirse  
-- Sonnenblumen  
-- Baumwolle  
-- Reis  
-- Langkornreis  
-- Erbsen  
-- Spinat  
-- Grüne Bohnen  
-- Häckselgut  
-- Gras *(nur Ballenpresse)*  
-- Stroh *(nur Ballenpresse)*  
-- Heu *(nur Ballenpresse)*  
+Unterstützte Fülltypen (18):
+- Baumwolle
+- Chaff
+- Erbsen
+- Gerste
+- Gras (nur Ballenpresse)
+- Grüne Bohnen
+- Hafer
+- Heu (nur Ballenpresse)
+- Häckselgut
+- Langkornreis
+- Mais
+- Reis
+- Raps
+- Sojabohnen
+- Sorghum
+- Spinat
+- Stroh (nur Ballenpresse)
+- Weizen
+- Sonnenblumen
 
-Wenn du nach einer einfachen Möglichkeit suchst, die Felderträge zu überwachen und deine Fruchtfolgen besser zu planen, ist YieldTracker genau das Richtige für dich.
+Wenn du eine einfache Möglichkeit suchst, die Produktivität deiner Felder zu überwachen und deine Fruchtfolgen besser zu planen, ist YieldTracker genau das Richtige für dich.
+
+Fragen oder Probleme?
+Fehler melden oder mithelfen auf GitHub: https://github.com/BitBarn-Mods/FS25_YieldTracker
 ]]>
 </de>
-
 
 </description>
 
