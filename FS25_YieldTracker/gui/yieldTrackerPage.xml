@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<GUI name="YieldTrackerPage" returnScreenCallback="onClickBack">
+    <GuiElement profile="mainContainer" >
+
+        <GuiElement profile="fs25_menuHeaderPanel" size="0.805 0.1" position="0.0 0.074">
+            <Bitmap profile="fs25_menuHeaderIconBg">
+                <Bitmap profile="yieldTrackerMenuHeaderIcon" id="pageHeaderIcon"/>
+            </Bitmap>
+            <Text profile="fs25_menuHeaderTitle" id="categoryHeaderText" text="$l10n_yt_modName"/>
+        </GuiElement>
+
+        <ThreePartBitmap profile="highlightedSeperator" size="0.83 0.003"/>
+
+        <GuiElement profile="statsBoxHeader" size="0.83 0.0" position="0.0 -0.02">
+            <Button profile="taskListHeader" position="85px 0px" text="$l10n_yt_selectFieldLabel" handleFocus="false" />
+            <Button profile="taskListHeader" position="390px 0px" text="$l10n_yt_selectCropLabel" handleFocus="false" />
+            <Button profile="taskListHeader" position="800px 0px" text="$l10n_yt_overviewLabel" handleFocus="false" />
+            
+            <Button profile="taskListHeader" position="1150px 0px" text="$l10n_yt_yearLabel" handleFocus="false" />
+            <Button profile="taskListHeader" position="1450px 0px" text="$l10n_yt_totalYieldLabel" handleFocus="false" />
+
+            <ThreePartBitmap profile="nonHighlightedSeperator"/>
+        </GuiElement>
+
+
+        <GuiElement profile="fieldIDListContainer">
+            <SmoothList id="farmlandList" visible="true">
+                <ListItem profile="yieldTrackerListItem" name="default" onClick="onClickFieldSelected">
+                    <Text profile="itemListText" name="fieldIDListText" textAlignment="center" textVerticalAlignment="center" anchor="center" position="0 0" size="100% 100%"/>
+                </ListItem>
+            </SmoothList>
+
+            <ThreePartBitmap profile="taskListGroupsSliderBox">
+                <Slider profile="fs25_listSlider" dataElementId="farmlandList"/>
+            </ThreePartBitmap>
+        </GuiElement>
+
+
+        <GuiElement profile="cropSelectionContainer">
+            <SmoothList id="cropList" visible="true">
+                <ListItem profile="yieldTrackerListItem" name="default" onClick="onClickCropSelected">
+                    <Bitmap profile="selectCropRowImage" name="icon"/>
+                    <Text profile="itemListText" name="cropListText" textAlignment="center" textVerticalAlignment="center" position="0 0" size="100% 100%"/>
+                </ListItem>
+            </SmoothList>
+
+            <!-- <ThreePartBitmap profile="taskListGroupsSliderBox">
+                <Slider profile="fs25_listSlider" dataElementId="cropList"/>
+            </ThreePartBitmap> -->
+
+            <Bitmap profile="verticalSeperator"/>
+        </GuiElement>
+
+
+        
+        <GuiElement profile="yieldHistoryContainer">
+            <GuiElement id="yieldStatsInformation">
+    
+                <!-- Average Yield, Total Harvests, Best Year/Yield Amt-->
+                <RoundCorner profile="statsBox" id="shopMoneyBoxBg" position="0.0 0.0" size="0.19 0.32">
+                    
+                    <!-- Selected Field Number -->
+                    <Text profile="selectedFieldNumText" id="selectedFieldNumText" textVerticalAlignment="top"/>
+                    <ThreePartBitmap profile="overviewNonHighlightedSeperator" />
+
+                    <!-- Selected Crop Type -->
+                    <Text profile="statsBoxLabels" position="0.015 -0.07" text="$l10n_yt_cropTypeLabel" textVerticalAlignment="top"/>
+                    <Bitmap profile="statsBoxselectedCropIcon" id="selectedCropicon" position="0.015 -0.088"/>
+                    <Text profile="statsBoxResults" id="selectedCropTypeText" position="0.027 -0.088" textVerticalAlignment="top"/>
+
+                    <!-- Total Harvests -->
+                    <Text profile="statsBoxLabels" position="0.015 -0.13" text="$l10n_yt_totalHarvestsLabel" textVerticalAlignment="top"/>
+                    <Text profile="statsBoxResults" id="selectedCropTotalHarvests" position="0.015 -0.148" textVerticalAlignment="top"/>
+
+                    <!-- Average Yield -->
+                    <Text profile="statsBoxLabels" position="0.015 -0.19" text="$l10n_yt_averageYearTitleLabel" textVerticalAlignment="top"/>
+                    <Text profile="statsBoxResults" id="selectedCropAverageYield" position="0.015 -0.208" text="22981 l" textVerticalAlignment="top"/>
+
+
+                    <!-- Best Year -->
+                    <Text profile="statsBoxLabels" position="0.015 -0.25" text="$l10n_yt_bestYearLabel" textVerticalAlignment="top"/>
+                    <Text profile="statsBoxResults" id="selectedCropBestYear" position="0.015 -0.268" text="Year 2 | 32213 l" textVerticalAlignment="top"/>
+
+                </RoundCorner>
+
+
+                <!-- Yield per year/amount list -->
+                <GuiElement profile="yieldListContainer" position="-0.01 0.0" size="0.22 0.32">
+                    <SmoothList id="yieldPerYearList" size="0.22 0.32" visible="true">
+                        <ListItem profile="yieldTrackerListItem" name="default" allowSelected="false" >
+
+                            <Text profile="yieldStatItemListText" name="year"
+                                textAlignment="left"
+                                textVerticalAlignment="center"
+                                position="0.01 0"
+                                size="40% 100%"
+                                />
+
+                            <Text profile="yieldStatItemListText" name="yieldAmt"
+                                textAlignment="right"
+                                textVerticalAlignment="center"
+                                position="-0.01 0"
+                                size="100% 100%"
+                                />
+                        </ListItem>
+                    </SmoothList>
+                    <ThreePartBitmap profile="taskListGroupsSliderBox">
+                        <Slider profile="fs25_listSlider" dataElementId="yieldPerYearList"/>
+                    </ThreePartBitmap>
+                </GuiElement>
+                
+        
+                <!-- Graph -->
+                <Text profile="fs25_statisticsHeaderText" text="$l10n_yt_graphTitle" position="-40px 0px"/>
+
+                <GuiElement profile="fluctuationsGraph" id="barGraph" position="0.0 0.03" size="0.467 0.30" hasFrame="true" frameThickness="1px 0px 0px 1px" frameLeftColor="0.4 0.4 0.4 1" frameBottomColor="0.4 0.4 0.4 1">
+                    <Bitmap profile="graphCandleTemplate" id="graphCandleTemplate" visible="false"/>
+                </GuiElement>
+
+                <!-- Year ticks (x) -->
+                <GuiElement profile="graphYearTickContainer" id="graphYearTickContainer">
+                    <Text profile="graphYearTickTemplate" id="graphYearTickTemplate" visible="false"/>
+                </GuiElement>
+
+            </GuiElement>
+
+            <Text profile="noYieldHistoryAlert" text="$l10n_yt_noYieldHistoryMsg" id="noYieldHistoryText"/>
+        </GuiElement>
+
+
+ 
+    </GuiElement>
+</GUI>

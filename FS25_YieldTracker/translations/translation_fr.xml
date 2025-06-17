@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <texts>
+        <text name="yt_modName" text="Suivi Du Rendement"/>
+        <text name="yt_selectFieldLabel" text="Sélectionner Champ"/>
+        <text name="yt_selectCropLabel" text="Sélectionnez Recadrer"/>
+        <text name="yt_overviewLabel" text="Aperçu"/>
+        <text name="yt_totalYieldLabel" text="Rendement total"/>
+        <text name="yt_graphTitle" text="Les 20 dernières années"/>
+        <text name="yt_noYieldHistoryMsg" text="Aucun historique de rendement"/>
+        <text name="yt_fieldIDLabel" text="Champ"/>
+        <text name="yt_yearLabel" text="Année"/>
+        <text name="yt_cropTypeLabel" text="Type de culture:"/>
+        <text name="yt_totalHarvestsLabel" text="Récoltes totales:"/>
+        <text name="yt_averageYearTitleLabel" text="Rendement moyen:"/>
+        <text name="yt_bestYearLabel" text="Meilleure année:"/>
+        <text name="wheatLabel" text="Blé"/>
+        <text name="canolaLabel" text="Colza"/>
+        <text name="grapesLabel" text="Raisins"/>
+        <text name="olivesLabel" text="Olives"/>
+        <text name="carrotsLabel" text="Carottes"/>
+        <text name="spinachLabel" text="Épinards"/>
+        <text name="cornLabel" text="Maïs"/>
+        <text name="peasLabel" text="Petits pois"/>
+        <text name="potatoesLabel" text="Pommes de terre"/>
+        <text name="oatLabel" text="Avoine"/>
+        <text name="barleyLabel" text="Orge"/>
+        <text name="cottonLabel" text="Coton"/>
+        <text name="grassLabel" text="Herbe"/>
+        <text name="strawLabel" text="Paille"/>
+        <text name="hayLabel" text="Foins"/>
+        <text name="greenbeansLabel" text="Haricots verts"/>
+        <text name="longgrainriceLabel" text="Riz long grain"/>
+        <text name="riceLabel" text="Riz"/>
+        <text name="sorghumLabel" text="Sorgho"/>
+        <text name="soybeansLabel" text="Soja"/>
+        <text name="sunflowersLabel" text="Tournesols"/>
+        <text name="chaffLabel" text="Ensilage"/>
+    </texts>
+</l10n>

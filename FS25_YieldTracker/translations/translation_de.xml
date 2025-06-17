@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <texts>
+        <text name="yt_modName" text="Ertrags-Tracker"/>
+        <text name="yt_selectFieldLabel" text="Feld auswählen"/>
+        <text name="yt_selectCropLabel" text="Wählen Sie Zuschneiden"/>
+        <text name="yt_overviewLabel" text="Übersicht"/>
+        <text name="yt_totalYieldLabel" text="Gesamt­ertrag"/>
+        <text name="yt_graphTitle" text="Letzten 20 Jahren"/>
+        <text name="yt_noYieldHistoryMsg" text="Keine Renditehistorie"/>
+        <text name="yt_fieldIDLabel" text="Feld"/>
+        <text name="yt_yearLabel" text="Jahr"/>
+        <text name="yt_cropTypeLabel" text="Fruchtart:"/>
+        <text name="yt_totalHarvestsLabel" text="Gesamte Ernten:"/>
+        <text name="yt_averageYearTitleLabel" text="Durchschnittlicher Ertrag:"/>
+        <text name="yt_bestYearLabel" text="Bestes Jahr:"/>
+        <text name="wheatLabel" text="Weizen"/>
+        <text name="canolaLabel" text="Raps"/>
+        <text name="grapesLabel" text="Trauben"/>
+        <text name="olivesLabel" text="Oliven"/>
+        <text name="carrotsLabel" text="Karotten"/>
+        <text name="spinachLabel" text="Spinat"/>
+        <text name="cornLabel" text="Mais"/>
+        <text name="peasLabel" text="Erbsen"/>
+        <text name="potatoesLabel" text="Kartoffeln"/>
+        <text name="oatLabel" text="Hafer"/>
+        <text name="barleyLabel" text="Gerste"/>
+        <text name="cottonLabel" text="Baumwolle"/>
+        <text name="grassLabel" text="Gras"/>
+        <text name="strawLabel" text="Stroh"/>
+        <text name="hayLabel" text="Heu"/>
+        <text name="greenbeansLabel" text="Grüne Bohnen"/>
+        <text name="longgrainriceLabel" text="Langkornreis"/>
+        <text name="riceLabel" text="Reis"/>
+        <text name="sorghumLabel" text="Sorghum"/>
+        <text name="soybeansLabel" text="Sojabohnen"/>
+        <text name="sunflowersLabel" text="Sonnenblumen"/>
+        <text name="chaffLabel" text="Spreu"/>
+    </texts>
+</l10n>

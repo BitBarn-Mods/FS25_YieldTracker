@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="99">
+<author>BitBarn Mods</author>
+<version>1.0.0.0</version>
+<title>
+<en>Yield Tracker</en>
+<de>Ertrags-Tracker</de>
+<fr>Suivi Du Rendement</fr>
+</title>
+<description>
+<en>
+<![CDATA[
+**Note:** This mod currently supports **Singleplayer** mode only on **PC/Mac**.
+
+**YieldTracker** helps you keep track of your harvests across different fields and years. It logs total yields by crop (fill type), field number, and year, so you can easily monitor your farm’s performance over time.
+
+Works with both AI workers and contract jobs.
+
+**Supported Fill Types (18):**
+- Wheat  
+- Barley  
+- Oat  
+- Canola  
+- Corn  
+- Soybeans  
+- Sorghum  
+- Sunflowers  
+- Cotton  
+- Rice  
+- Long Grain Rice  
+- Peas  
+- Spinach  
+- Green Beans  
+- Chaff  
+- Grass *(baler only)*  
+- Straw *(baler only)*  
+- Hay *(baler only)*  
+
+If you're looking for a simple way to monitor field productivity and plan better crop rotations, YieldTracker has you covered.
+]]>
+</en>
+<de>
+<![CDATA[
+**Hinweis:** Dieses Mod ist derzeit nur im **Einzelspielermodus** auf **PC/Mac** verfügbar.
+
+**YieldTracker** hilft dir dabei, deine Ernten über verschiedene Felder und Jahre hinweg im Blick zu behalten. Es protokolliert die Gesamterträge nach Fruchtart (Fill Type), Feldnummer und Jahr, sodass du die Leistung deines Betriebs einfach nachverfolgen kannst.
+
+Funktioniert mit Helfern und bei Auftragsarbeiten.
+
+**Unterstützte Fruchttypen (18):**
+- Weizen  
+- Gerste  
+- Hafer  
+- Raps  
+- Mais  
+- Sojabohnen  
+- Sorghumhirse  
+- Sonnenblumen  
+- Baumwolle  
+- Reis  
+- Langkornreis  
+- Erbsen  
+- Spinat  
+- Grüne Bohnen  
+- Häckselgut  
+- Gras *(nur Ballenpresse)*  
+- Stroh *(nur Ballenpresse)*  
+- Heu *(nur Ballenpresse)*  
+
+Wenn du nach einer einfachen Möglichkeit suchst, die Felderträge zu überwachen und deine Fruchtfolgen besser zu planen, ist YieldTracker genau das Richtige für dich.
+]]>
+</de>
+
+
+</description>
+
+<iconFilename>icon_YieldTracker.dds</iconFilename>
+<multiplayer supported="false"/>
+<l10n filenamePrefix="translations/translation"/>
+<extraSourceFiles>
+<sourceFile filename="main.lua"/>
+</extraSourceFiles>
+</modDesc>
