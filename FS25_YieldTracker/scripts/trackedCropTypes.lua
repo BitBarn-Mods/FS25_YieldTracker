@@ -9,7 +9,7 @@ TrackedCropTypes = {
     { title = "Chaff", fillTypeIndex = 118, hudOverlayFilename = "dataS/menu/hud/fillTypes/hud_fill_chaff.png"},
     { title = "Corn", fillTypeIndex = 9, hudOverlayFilename = "dataS/menu/hud/fillTypes/hud_fill_maize.png"},
     { title = "Cotton", fillTypeIndex = 15, hudOverlayFilename = "dataS/menu/hud/fillTypes/hud_fill_cotton.png"},
-    { title = "Grass", fillTypeIndex = 26, hudOverlayFilename = "dataS/menu/hud/fillTypes/hud_fill_grass.png"},
+    { title = "Grass", fillTypeIndex = 28, hudOverlayFilename = "dataS/menu/hud/fillTypes/hud_fill_grass.png"},
     { title = "Green Beans", fillTypeIndex = 18, hudOverlayFilename = "dataS/menu/hud/fillTypes/hud_fill_greenbean.png"},
     { title = "Hay", fillTypeIndex = 30, hudOverlayFilename = "dataS/menu/hud/fillTypes/hud_fill_dryGrass_windrow.png"},
     { title = "Long Grain Rice", fillTypeIndex = 16, hudOverlayFilename = "dataS/menu/hud/fillTypes/hud_fill_riceLongGrain.png"},
