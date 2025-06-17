@@ -10,8 +10,8 @@ Whether you're managing fields on your own or working with **AI workers** or **c
 
 ## 📷 Screenshots
 
-![Main View](_assets/screenshots/showcase_1.png)  
-![Field Summary](_assets/screenshots/showcase_2.png)
+![Main View](_assets/screenshots/screenshot_yt_1.png)  
+![Field Summary](_assets/screenshots/screenshot_yt_2.png)
 
 ---
 
@@ -65,10 +65,12 @@ Whether you're managing fields on your own or working with **AI workers** or **c
 
 ## 📣 Feedback & Issues
 
-Found a bug or have a feature suggestion? Open an issue on this repository.
+Found a bug or have a feature suggestion? Navigate to the [Issues](../../issues) section on this repository to let us know.
 
 ---
 
 ## 📜 License
 
-This mod is open-source. You can view, modify, or contribute via this GitHub repository. Please credit the original author if redistributed.
+This mod is open-source. You may view, modify, or contribute to it via the GitHub repository.
+Redistribution is not permitted without explicit permission from the original author.
+If you modify or use parts of this code, please provide proper credit.
