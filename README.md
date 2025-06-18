@@ -24,26 +24,27 @@ Whether you're managing fields on your own or working with **AI workers** or **c
 
 ---
 
-## 📦 Supported Fill Types (18)
+## 📦 Supported Fill Types (19)
 
-- Wheat  
 - Barley  
-- Oat  
 - Canola  
-- Corn  
-- Soybeans  
-- Sorghum  
-- Sunflowers  
-- Cotton  
-- Rice  
-- Long Grain Rice  
-- Peas  
-- Spinach  
-- Green Beans  
 - Chaff  
+- Corn  
+- Cotton  
 - Grass *(baler only)*  
-- Straw *(baler only)*  
+- Green Beans  
 - Hay *(baler only)*  
+- Long Grain Rice  
+- Oat  
+- Peas  
+- Potatoes  
+- Rice  
+- Sorghum  
+- Soybeans  
+- Spinach  
+- Straw *(baler only)*  
+- Sunflowers  
+- Wheat
 
 ---
 

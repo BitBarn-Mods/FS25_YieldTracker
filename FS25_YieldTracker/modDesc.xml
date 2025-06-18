@@ -16,7 +16,7 @@ YieldTracker helps you keep track of your harvests across different fields and y
 
 Works with both AI workers and contract jobs.
 
-Supported Fill Types (18):
+Supported Fill Types (19):
 - Barley
 - Canola
 - Chaff
@@ -28,6 +28,7 @@ Supported Fill Types (18):
 - Long Grain Rice
 - Oat
 - Peas
+- Potatoes
 - Rice
 - Sorghum
 - Soybeans
@@ -51,7 +52,7 @@ YieldTracker hilft dir, deine Ernteerträge über verschiedene Felder und Jahre 
 
 Funktioniert sowohl mit Helfern als auch mit Aufträgen.
 
-Unterstützte Fülltypen (18):
+Unterstützte Fülltypen (19):
 - Baumwolle
 - Chaff
 - Erbsen
@@ -61,6 +62,7 @@ Unterstützte Fülltypen (18):
 - Hafer
 - Heu (nur Ballenpresse)
 - Häckselgut
+- Kartoffeln
 - Langkornreis
 - Mais
 - Reis
@@ -78,6 +80,43 @@ Fragen oder Probleme?
 Fehler melden oder mithelfen auf GitHub: https://github.com/BitBarn-Mods/FS25_YieldTracker
 ]]>
 </de>
+
+<fr>
+<![CDATA[
+Remarque : Ce mod prend actuellement en charge uniquement le mode solo sur PC/Mac.
+
+YieldTracker vous aide à suivre vos rendements de récolte sur différents champs et années. Il enregistre les rendements totaux par type de culture (type de remplissage), numéro de champ et année, afin que vous puissiez facilement surveiller la performance de votre exploitation.
+
+Fonctionne avec les ouvriers IA ainsi que les contrats.
+
+Types de remplissage pris en charge (19) :
+- Coton
+- Chaff
+- Pois
+- Orge
+- Herbe (pressage uniquement)
+- Haricots verts
+- Avoine
+- Foin (pressage uniquement)
+- Ensilage
+- Pommes de terre
+- Riz long grain
+- Maïs
+- Riz
+- Colza
+- Soja
+- Sorgho
+- Épinards
+- Paille (pressage uniquement)
+- Blé
+- Tournesols
+
+Vous cherchez un moyen simple de surveiller la productivité de vos champs et de mieux planifier votre rotation des cultures ? YieldTracker est fait pour vous.
+
+Des questions ou des problèmes ?
+Signalez les bugs ou contribuez sur GitHub : https://github.com/BitBarn-Mods/FS25_YieldTracker
+]]>
+</fr>
 
 </description>
 
