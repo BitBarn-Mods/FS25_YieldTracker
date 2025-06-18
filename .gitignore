@@ -40,3 +40,5 @@ luac.out
 *.hex
 
 TODO.md
+/production
+/_assets
