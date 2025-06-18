@@ -465,15 +465,18 @@ function YieldTrackerPage:setGraphData()
         local harvest = harvestByYear[year]
         if harvest then
             local yearYieldAmount = harvest.amount or 0
-            local candleClone = self.graphCandleTemplate:clone(barGraph)
-            local minHeight = 0.08
-            local heightRatio = (yearYieldAmount - minYield) / yieldRange
-            -- heightRatio = math.sqrt(heightRatio) -- apply easing
-            local candleHeight = minHeight + heightRatio * (0.27 - minHeight)
 
-            candleClone:setSize(0.01, candleHeight)
-            candleClone:setPosition(tickX + 0.0185, 0)
-            candleClone:setVisible(true)
+            if yearYieldAmount and yearYieldAmount > 0 then
+                local candleClone = self.graphCandleTemplate:clone(barGraph)
+                local minHeight = 0.08
+                local heightRatio = (yearYieldAmount - minYield) / yieldRange
+                -- heightRatio = math.sqrt(heightRatio) -- apply easing
+                local candleHeight = minHeight + heightRatio * (0.27 - minHeight)
+
+                candleClone:setSize(0.01, candleHeight)
+                candleClone:setPosition(tickX + 0.0185, 0)
+                candleClone:setVisible(true)
+            end
         end
     end
 end
