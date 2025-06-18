@@ -11,7 +11,7 @@ YieldTracker = {
     yieldData = {},
     saveFileName = "yieldTrackerData.xml",
 }
-YieldTracker.debug = true
+YieldTracker.debug = false
 
 
 --- Current active crop fill types that are tracked
