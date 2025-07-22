@@ -11,7 +11,7 @@ YieldTrackerPage._mt = Class(YieldTrackerPage, TabbedMenuFrameElement)
 YieldTrackerPage.debug = false
 YieldTrackerPage.dir = g_currentModDirectory
 
-source(g_currentModDirectory .. "scripts/yieldTrackerPage.lua") --> YieldTracker.yieldData
+-- source(g_currentModDirectory .. "scripts/yieldTrackerPage.lua") --> YieldTracker.yieldData -- BUG -- CANNOT LOAD RESOURCE, THIS IS NOT THE CORRECT PATH FOR THE DATA. TESTING NEEDED TO SEE IF REQUIRED AND IF SO CHANGE PATH
 source(g_currentModDirectory .. "scripts/trackedCropTypes.lua") --> TrackedCropTypes
 
 local trackedCropTypes = TrackedCropTypes
