@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<l10n>
+    <texts>
+        <text name="yt_modName" text="Rendimento"/>
+        <text name="yt_selectFieldLabel" text="Selecione o Campo"/>
+        <text name="yt_selectCropLabel" text="Cultura"/>
+        <text name="yt_overviewLabel" text="Visão geral"/>
+        <text name="yt_totalYieldLabel" text="Total"/>
+        <text name="yt_graphTitle" text="Últimos 20 anos"/>
+        <text name="yt_noYieldHistoryMsg" text="Sem histórico"/>
+        <text name="yt_fieldIDLabel" text="Campo"/>
+        <text name="yt_yearLabel" text="Ano"/>
+        <text name="yt_cropTypeLabel" text="Cultura:"/>
+        <text name="yt_totalHarvestsLabel" text="Produção Total:"/>
+        <text name="yt_averageYearTitleLabel" text="Média:"/>
+        <text name="yt_bestYearLabel" text="Melhor ano:"/>
+        <text name="wheatLabel" text="Trigo"/>
+        <text name="canolaLabel" text="Canola"/>
+        <text name="grapesLabel" text="Uvas"/>
+        <text name="olivesLabel" text="Azeitonas"/>
+        <text name="carrotsLabel" text="Cenouras"/>
+        <text name="spinachLabel" text="Espinafre"/>
+        <text name="cornLabel" text="Milho"/>
+        <text name="peasLabel" text="Ervilhas"/>
+        <text name="potatoesLabel" text="Batatas"/>
+        <text name="oatLabel" text="Aveia"/>
+        <text name="barleyLabel" text="Cevada"/>
+        <text name="cottonLabel" text="Algodão"/>
+        <text name="grassLabel" text="Capim"/>
+        <text name="strawLabel" text="Palha"/>
+        <text name="hayLabel" text="Feno"/>
+        <text name="greenbeansLabel" text="Vagens"/>
+        <text name="longgrainriceLabel" text="Arroz de grão longo"/>
+        <text name="riceLabel" text="Arroz"/>
+        <text name="sorghumLabel" text="Sorgo"/>
+        <text name="soybeansLabel" text="Soja"/>
+        <text name="sunflowersLabel" text="Girassóis"/>
+        <text name="chaffLabel" text="Restolho"/>
+    </texts>
+</l10n>
