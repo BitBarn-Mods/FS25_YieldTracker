@@ -3,7 +3,7 @@
     <texts>
         <text name="yt_modName" text="Ertrags-Tracker"/>
         <text name="yt_selectFieldLabel" text="Feld auswählen"/>
-        <text name="yt_selectCropLabel" text="Wählen Sie Zuschneiden"/>
+        <text name="yt_selectCropLabel" text="Frucht Auswählen"/>
         <text name="yt_overviewLabel" text="Übersicht"/>
         <text name="yt_totalYieldLabel" text="Gesamt­ertrag"/>
         <text name="yt_graphTitle" text="Letzten 20 Jahren"/>
@@ -35,6 +35,6 @@
         <text name="sorghumLabel" text="Sorghum"/>
         <text name="soybeansLabel" text="Sojabohnen"/>
         <text name="sunflowersLabel" text="Sonnenblumen"/>
-        <text name="chaffLabel" text="Spreu"/>
+        <text name="chaffLabel" text="Häckselgut"/>
     </texts>
 </l10n>
