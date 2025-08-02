@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <texts>
+        <text name="yt_modName" text="Sledování výnosů"/>
+        <text name="yt_selectFieldLabel" text="Vyber pole"/>
+        <text name="yt_selectCropLabel" text="Vyber plodinu"/>
+        <text name="yt_overviewLabel" text="Přehled"/>
+        <text name="yt_totalYieldLabel" text="Celkový výnos"/>
+        <text name="yt_graphTitle" text="Posledních 20 let"/>
+        <text name="yt_noYieldHistoryMsg" text="Žádná data o výnosech"/>
+        <text name="yt_fieldIDLabel" text="Pole"/>
+        <text name="yt_yearLabel" text="Rok"/>
+        <text name="yt_cropTypeLabel" text="Druh plodiny:"/>
+        <text name="yt_totalHarvestsLabel" text="Celková sklizeň:"/>
+        <text name="yt_averageYearTitleLabel" text="Průměrný výnos:"/>
+        <text name="yt_bestYearLabel" text="Nejlepší rok:"/>
+        <text name="wheatLabel" text="Pšenice"/>
+        <text name="canolaLabel" text="Řepka"/>
+        <text name="grapesLabel" text="Hroznové víno"/>
+        <text name="olivesLabel" text="Olivy"/>
+        <text name="carrotsLabel" text="Mrkev"/>
+        <text name="spinachLabel" text="Špenát"/>
+        <text name="cornLabel" text="Kukuřice"/>
+        <text name="peasLabel" text="Hrách"/>
+        <text name="potatoesLabel" text="Brambory"/>
+        <text name="oatLabel" text="Oves"/>
+        <text name="barleyLabel" text="Ječmen"/>
+        <text name="cottonLabel" text="Balvna"/>
+        <text name="grassLabel" text="Tráva"/>
+        <text name="strawLabel" text="Sláma"/>
+        <text name="hayLabel" text="Seno"/>
+        <text name="greenbeansLabel" text="Fazole"/>
+        <text name="longgrainriceLabel" text="Dlouhozrnná rýže"/>
+        <text name="riceLabel" text="Rýže"/>
+        <text name="sorghumLabel" text="Čirok"/>
+        <text name="soybeansLabel" text="Sojové boby"/>
+        <text name="sunflowersLabel" text="Slunečnice"/>
+        <text name="chaffLabel" text="Řezanka"/>
+    </texts>
+</l10n>
