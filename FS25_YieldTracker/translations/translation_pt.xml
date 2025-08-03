@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <texts>
+        <text name="yt_modName" text="Monitorização de Rendimento"/>
+        <text name="yt_selectFieldLabel" text="Selecionar campo"/>
+        <text name="yt_selectCropLabel" text="Selecionar Cultura"/>
+        <text name="yt_overviewLabel" text="Visão Geral"/>
+        <text name="yt_totalYieldLabel" text="Rendimento Total"/>
+        <text name="yt_graphTitle" text="Últimos 20 Anos"/>
+        <text name="yt_noYieldHistoryMsg" text="Sem Histórico de Rendimentos"/>
+        <text name="yt_fieldIDLabel" text="Campo"/>
+        <text name="yt_yearLabel" text="Ano"/>
+        <text name="yt_cropTypeLabel" text="Tipo de Cultura:"/>
+        <text name="yt_totalHarvestsLabel" text="Total de Colheitas:"/>
+        <text name="yt_averageYearTitleLabel" text="Rendimento Médio:"/>
+        <text name="yt_bestYearLabel" text="Melhor Ano:"/>
+        <text name="wheatLabel" text="Trigo"/>
+        <text name="canolaLabel" text="Canola"/>
+        <text name="grapesLabel" text="Uvas"/>
+        <text name="olivesLabel" text="Azeitonas"/>
+        <text name="carrotsLabel" text="Cenouras"/>
+        <text name="spinachLabel" text="Espinafres"/>
+        <text name="cornLabel" text="Milho"/>
+        <text name="peasLabel" text="Ervilhas"/>
+        <text name="potatoesLabel" text="Batatas"/>
+        <text name="oatLabel" text="Aveia"/>
+        <text name="barleyLabel" text="Cevada"/>
+        <text name="cottonLabel" text="Algodão"/>
+        <text name="grassLabel" text="Erva"/>
+        <text name="strawLabel" text="Palha"/>
+        <text name="hayLabel" text="Feno"/>
+        <text name="greenbeansLabel" text="Feijão Verde"/>
+        <text name="longgrainriceLabel" text="Arroz Longo"/>
+        <text name="riceLabel" text="Arroz"/>
+        <text name="sorghumLabel" text="Sorgo"/>
+        <text name="soybeansLabel" text="Soja"/>
+        <text name="sunflowersLabel" text="Girassois"/>
+        <text name="chaffLabel" text="Restolho"/>
+    </texts>
+</l10n>
