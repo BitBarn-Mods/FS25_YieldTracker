@@ -1,6 +1,6 @@
 -- Author: BitBarn Mods
 -- Date: 06-11-2025
--- Version: 1.0.0.0
+-- Version: 1.0.0.1
 -- trackedCropTypes.lua
 
 TrackedCropTypes = {
@@ -23,6 +23,8 @@ TrackedCropTypes = {
     { title = "Straw", fillTypeIndex = 31, hudOverlayFilename = "dataS/menu/hud/fillTypes/hud_fill_straw.png"},
     { title = "Sunflowers", fillTypeIndex = 7, hudOverlayFilename = "dataS/menu/hud/fillTypes/hud_fill_sunflower.png"},
     { title = "Wheat", fillTypeIndex = 2, hudOverlayFilename = "dataS/menu/hud/fillTypes/hud_fill_wheat.png"},
+    { title = "Spelt", fillTypeIndex = 183, hudOverlayFilename = "$moddir$/NFMarsch/config/huds/hud_fill_spelt.dds"},
+    { title = "Rye", fillTypeIndex = 184, hudOverlayFilename = "$moddir$/NFMarsch/config/huds/hud_fill_rye.dds"},
 }
 
 -- TODO: NEEDS SEPERATE FILL TRACKING METHOD TO ACCURATELY TRACK THESES FILL TYPES (expected in v1.0.1.0)
