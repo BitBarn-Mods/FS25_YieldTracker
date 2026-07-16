@@ -14,27 +14,5 @@
         <text name="yt_totalHarvestsLabel" text="Total Harvests:"/>
         <text name="yt_averageYearTitleLabel" text="Average Yield:"/>
         <text name="yt_bestYearLabel" text="Best Year:"/>
-        <text name="wheatLabel" text="Wheat"/>
-        <text name="canolaLabel" text="Canola"/>
-        <text name="grapesLabel" text="Grapes"/>
-        <text name="olivesLabel" text="Olives"/>
-        <text name="carrotsLabel" text="Carrots"/>
-        <text name="spinachLabel" text="Spinach"/>
-        <text name="cornLabel" text="Corn"/>
-        <text name="peasLabel" text="Peas"/>
-        <text name="potatoesLabel" text="Potatoes"/>
-        <text name="oatLabel" text="Oat"/>
-        <text name="barleyLabel" text="Barley"/>
-        <text name="cottonLabel" text="Cotton"/>
-        <text name="grassLabel" text="Grass"/>
-        <text name="strawLabel" text="Straw"/>
-        <text name="hayLabel" text="Hay"/>
-        <text name="greenbeansLabel" text="Green Beans"/>
-        <text name="longgrainriceLabel" text="Long Grain Rice"/>
-        <text name="riceLabel" text="Rice"/>
-        <text name="sorghumLabel" text="Sorghum"/>
-        <text name="soybeansLabel" text="Soybeans"/>
-        <text name="sunflowersLabel" text="Sunflowers"/>
-        <text name="chaffLabel" text="Chaff"/>
     </texts>
 </l10n>

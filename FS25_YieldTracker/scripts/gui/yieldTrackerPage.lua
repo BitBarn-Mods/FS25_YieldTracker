@@ -12,11 +12,6 @@ YieldTrackerPage.debug = false
 YieldTrackerPage.dir = g_currentModDirectory
 
 -- source(g_currentModDirectory .. "scripts/yieldTrackerPage.lua") --> YieldTracker.yieldData -- BUG -- CANNOT LOAD RESOURCE, THIS IS NOT THE CORRECT PATH FOR THE DATA. TESTING NEEDED TO SEE IF REQUIRED AND IF SO CHANGE PATH
-source(g_currentModDirectory .. "scripts/trackedCropTypes.lua") --> TrackedCropTypes
-
-local trackedCropTypes = TrackedCropTypes
-
-
 function YieldTrackerPage.new(i18n, messageCenter)
     local self = YieldTrackerPage:superClass().new(nil, YieldTrackerPage._mt)
     self.name = "YieldTrackerPage"
@@ -26,8 +21,9 @@ function YieldTrackerPage.new(i18n, messageCenter)
     self.dataBindings = {}
     self.farmlandIDs = {}
     self.yieldYears = {}
-    self.cropInfo = trackedCropTypes
-    self.selectedCrop = trackedCropTypes[1].fillTypeIndex
+    -- Dynamically filled from g_fruitTypeManager in onGuiSetupFinished/onFrameOpen
+    self.cropInfo = {}
+    self.selectedCrop = nil
     self.selectedField = 1
     self.showingOwnedFields = false
 
@@ -45,6 +41,202 @@ local function formatWithCommas(n)
         if k == 0 then break end
     end
     return formatted
+end
+
+
+function YieldTrackerPage:getLocalizedTextOrFallback(key, fallback)
+    if key ~= nil and key ~= "" then
+        local text = self.i18n:getText(key)
+        if text ~= nil and text ~= key and text ~= "" then
+            return text
+        end
+    end
+
+    return fallback or ""
+end
+
+
+function YieldTrackerPage:getFruitTypeDisplayName(fruitType, fillType)
+    local rawTitle = nil
+
+    if fillType ~= nil then
+        rawTitle = fillType.title or fillType.name
+    end
+
+    rawTitle = rawTitle or fruitType.title or fruitType.name or ""
+
+    if type(rawTitle) == "string" and rawTitle:sub(1, 6) == "$l10n_" then
+        return self:getLocalizedTextOrFallback(rawTitle:sub(7), fruitType.name or rawTitle)
+    end
+
+    return rawTitle
+end
+
+
+function YieldTrackerPage:getFillTypeIndexByNameSafe(fillTypeName)
+    if fillTypeName == nil or g_fillTypeManager == nil then
+        return nil
+    end
+
+    if g_fillTypeManager.getFillTypeIndexByName ~= nil then
+        local ok, result = pcall(function() return g_fillTypeManager:getFillTypeIndexByName(fillTypeName) end)
+        if ok and result ~= nil and result ~= FillType.UNKNOWN then
+            return result
+        end
+    end
+
+    if g_fillTypeManager.nameToIndex ~= nil then
+        local result = g_fillTypeManager.nameToIndex[fillTypeName]
+        if result ~= nil and result ~= FillType.UNKNOWN then
+            return result
+        end
+    end
+
+    if g_fillTypeManager.nameToFillType ~= nil and g_fillTypeManager.nameToFillType[fillTypeName] ~= nil then
+        local desc = g_fillTypeManager.nameToFillType[fillTypeName]
+        local result = desc.index or desc.fillTypeIndex
+        if result ~= nil and result ~= FillType.UNKNOWN then
+            return result
+        end
+    end
+
+    if g_fillTypeManager.indexToFillType ~= nil then
+        for index, desc in pairs(g_fillTypeManager.indexToFillType) do
+            if desc ~= nil and desc.name == fillTypeName then
+                return index
+            end
+        end
+    end
+
+    return nil
+end
+
+function YieldTrackerPage:getFillTypeDescByIndexSafe(fillTypeIndex)
+    if fillTypeIndex == nil or g_fillTypeManager == nil then
+        return nil
+    end
+
+    if g_fillTypeManager.getFillTypeByIndex ~= nil then
+        local ok, result = pcall(function() return g_fillTypeManager:getFillTypeByIndex(fillTypeIndex) end)
+        if ok and result ~= nil then
+            return result
+        end
+    end
+
+    if g_fillTypeManager.indexToFillType ~= nil then
+        return g_fillTypeManager.indexToFillType[fillTypeIndex]
+    end
+
+    return nil
+end
+
+function YieldTrackerPage:getFillTypeDisplayName(fillTypeIndex, fallbackName)
+    local desc = self:getFillTypeDescByIndexSafe(fillTypeIndex)
+    local rawTitle = fallbackName
+
+    if desc ~= nil then
+        rawTitle = desc.title or desc.name or fallbackName
+    end
+
+    if type(rawTitle) == "string" and rawTitle:sub(1, 6) == "$l10n_" then
+        return self:getLocalizedTextOrFallback(rawTitle:sub(7), fallbackName or rawTitle)
+    end
+
+    return rawTitle or tostring(fillTypeIndex)
+end
+
+function YieldTrackerPage:addExtraFillTypeToCropList(crops, usedFillTypes, fillTypeName, fallbackTitle)
+    local fillTypeIndex = self:getFillTypeIndexByNameSafe(fillTypeName)
+    if fillTypeIndex == nil or usedFillTypes[fillTypeIndex] ~= nil then
+        return false
+    end
+
+    local desc = self:getFillTypeDescByIndexSafe(fillTypeIndex)
+    local icon = ""
+
+    if desc ~= nil then
+        icon = desc.hudOverlayFilename or desc.iconFilename or ""
+    end
+
+    local title = self:getFillTypeDisplayName(fillTypeIndex, fallbackTitle or fillTypeName)
+
+    table.insert(crops, {
+        fruitTypeIndex = nil,
+        fillTypeIndex = fillTypeIndex,
+        name = fillTypeName,
+        title = title,
+        hudOverlayFilename = icon,
+        isExtraFillType = true
+    })
+
+    usedFillTypes[fillTypeIndex] = true
+    return true
+end
+
+
+
+function YieldTrackerPage:refreshCropInfoFromFruitTypeManager()
+    local crops = {}
+    local usedFillTypes = {}
+
+    if g_fruitTypeManager == nil or g_fruitTypeManager.getFruitTypes == nil then
+        self:debugMessage("FruitTypeManager not available yet; crop list remains empty")
+        self.cropInfo = crops
+        self.selectedCrop = nil
+        return crops
+    end
+
+    for _, fruitType in ipairs(g_fruitTypeManager:getFruitTypes()) do
+        if fruitType ~= nil then
+            local fillType = fruitType.fillType
+            local fillTypeIndex = nil
+
+            if fillType ~= nil then
+                fillTypeIndex = fillType.index or fillType.fillTypeIndex
+            end
+
+            fillTypeIndex = fillTypeIndex or fruitType.fillTypeIndex
+
+            if fillTypeIndex ~= nil and usedFillTypes[fillTypeIndex] == nil then
+                usedFillTypes[fillTypeIndex] = true
+
+                local title = self:getFruitTypeDisplayName(fruitType, fillType)
+                local icon = nil
+
+                if fillType ~= nil then
+                    icon = fillType.hudOverlayFilename or fillType.iconFilename
+                end
+
+                icon = icon or fruitType.hudOverlayFilename or fruitType.iconFilename or ""
+
+                table.insert(crops, {
+                    fruitTypeIndex = fruitType.index,
+                    fillTypeIndex = fillTypeIndex,
+                    name = fruitType.name or title,
+                    title = title,
+                    hudOverlayFilename = icon
+                })
+            end
+        end
+    end
+
+    -- Extra fill types that are not always exposed as FruitTypes, but are relevant for yield tracking.
+    self:addExtraFillTypeToCropList(crops, usedFillTypes, "DRYGRASS_WINDROW", "Heu")
+    self:addExtraFillTypeToCropList(crops, usedFillTypes, "CHAFF", "Häckselgut")
+    self:addExtraFillTypeToCropList(crops, usedFillTypes, "STRAW", "Stroh")
+    self:addExtraFillTypeToCropList(crops, usedFillTypes, "STRAW_WINDROW", "Stroh")
+
+    table.sort(crops, function(a, b)
+        return tostring(a.title):lower() < tostring(b.title):lower()
+    end)
+
+    self.cropInfo = crops
+
+    if self.selectedCrop == nil or usedFillTypes[self.selectedCrop] == nil then
+        self.selectedCrop = crops[1] ~= nil and crops[1].fillTypeIndex or nil
+    end
+
+    return crops
 end
 
 
@@ -119,22 +311,38 @@ function YieldTrackerPage:onGuiSetupFinished()
 
     -- farm id list handling
     self.farmlandList = self:getDescendantById("farmlandList")
-    self.farmlandList:setDataSource(self)
-    self.farmlandList:setDelegate(self)
+    if self.farmlandList ~= nil then
+        self.farmlandList:setDataSource(self)
+        self.farmlandList:setDelegate(self)
+    end
 
     -- crop list/fill type handling
     self.cropList = self:getDescendantById("cropList")
-    self.cropList:setDataSource(self)
-    self.cropList:setDelegate(self)
-
-    if self.cropList then
+    self:refreshCropInfoFromFruitTypeManager()
+    if self.cropList ~= nil then
+        self.cropList:setDataSource(self)
+        self.cropList:setDelegate(self)
         self.cropList:reloadData()
     end
 
     -- users yield history list
     self.yieldPerYearList = self:getDescendantById("yieldPerYearList")
-    self.yieldPerYearList:setDataSource(self)
-    self.yieldPerYearList:setDelegate(self)
+    if self.yieldPerYearList ~= nil then
+        self.yieldPerYearList:setDataSource(self)
+        self.yieldPerYearList:setDelegate(self)
+    end
+    self.noYieldHistoryText = self:getDescendantById("noYieldHistoryText")
+    self.yieldStatsInformation = self:getDescendantById("yieldStatsInformation")
+    self.yieldListMode = self:getDescendantById("yieldListMode")
+    self.yieldDetailMode = self:getDescendantById("yieldDetailMode")
+
+    -- Additional GUI elements used by the redesigned XML layout
+    self.yieldListMode = self:getDescendantById("yieldListMode")
+    self.yieldDetailMode = self:getDescendantById("yieldDetailMode")
+    self.noYieldHistoryText = self:getDescendantById("noYieldHistoryText")
+    self.yieldStatsInformation = self:getDescendantById("yieldStatsInformation")
+    self.graphYearTickTemplate = self:getDescendantById("graphYearTickTemplate")
+    self.graphCandleTemplate = self:getDescendantById("graphCandleTemplate")
 
     -- debuggers
     self:debugMessage("YieldPerYearList found: " .. tostring(self.yieldPerYearList ~= nil))
@@ -150,6 +358,11 @@ end
 function YieldTrackerPage:onFrameOpen()
     YieldTrackerPage:superClass().onFrameOpen(self)
     self:getFarmlandIDs()
+    self:refreshCropInfoFromFruitTypeManager()
+
+    if self.cropList then
+        self.cropList:reloadData()
+    end
 
     if self.farmlandList then
         self.farmlandList:reloadData()
@@ -187,18 +400,45 @@ end
 
 function YieldTrackerPage:onClickCropSelected(element)
     local selected = self.cropInfo[element.indexInSection]
+    if selected == nil then
+        return
+    end
+
     self.selectedCrop = selected.fillTypeIndex
     self:setSelectedPageData()
+
+    -- NEW: switch to detail view when both selected
+    if self.selectedField ~= nil and self.selectedCrop ~= nil then
+        if self.yieldListMode ~= nil then
+            self.yieldListMode:setVisible(false)
+        end
+        if self.yieldDetailMode ~= nil then
+            self.yieldDetailMode:setVisible(true)
+        end
+    end
 end
 
 
 function YieldTrackerPage:onClickFieldSelected(element)
     self.selectedField = self.farmlandIDs[element.indexInSection]
     self:setSelectedPageData()
+
+    -- NEW: stay in list until crop is selected
+    if self.yieldListMode ~= nil then
+        self.yieldListMode:setVisible(true)
+    end
+    if self.yieldDetailMode ~= nil then
+        self.yieldDetailMode:setVisible(false)
+    end
 end
 
 
 function YieldTrackerPage:setSelectedPageData()
+    if self.selectedCrop == nil then
+        self.yieldYears = {}
+        return
+    end
+
     self:initiateFieldCropStatsSearch()
     self:setOverviewStatsText()
 
@@ -213,6 +453,10 @@ function YieldTrackerPage:initiateFieldCropStatsSearch()
     local currentYear = g_currentMission.environment.currentYear
     local foundData = false
     self.yieldYears = {} -- Clear existing data
+
+    if selectedFillTypeIndex == nil or selectedField == nil then
+        return
+    end
 
     self:debugMessage(string.format("Search stats for fill type index %d on field %d", selectedFillTypeIndex, selectedField))
 
@@ -272,8 +516,18 @@ function YieldTrackerPage:initiateFieldCropStatsSearch()
     end
 
     -- Show message only if no data found
-    self.noYieldHistoryText:setVisible(not foundData)
-    self.yieldStatsInformation:setVisible(foundData)
+    if self.noYieldHistoryText ~= nil then
+        self.noYieldHistoryText:setVisible(not foundData)
+    end
+
+    -- Keep the right detail/graph panel visible even when no data is found.
+    if self.yieldStatsInformation ~= nil then
+        self.yieldStatsInformation:setVisible(true)
+    end
+
+    if self.yieldDetailMode ~= nil then
+        self.yieldDetailMode:setVisible(true)
+    end
 end
 
 
@@ -306,15 +560,17 @@ function YieldTrackerPage:setOverviewStatsText()
     if selectedFieldNumText and selectedCropTypeText and selectedCropTypeIcon and selectedCropTotalHarvests and selectedCropAverageYield and selectedCropBestYear then
         selectedFieldNumText:setText(string.format("%s %d", self.i18n:getText("yt_fieldIDLabel"), fieldID))
 
-        local cropKey = cropName:lower():gsub(" ", "") .. "Label"
-        selectedCropTypeText:setText(self.i18n:getText(cropKey) or cropName)
+        -- Use the already resolved registered fill type title instead of building a custom l10n key.
+        selectedCropTypeText:setText(cropName or "")
 
         selectedCropTotalHarvests:setText(selectedOverviewData.totalYears)
         selectedCropAverageYield:setText(string.format("%s l", formatWithCommas(selectedOverviewData.averageYield)))
 
         selectedCropBestYear:setText(string.format("%s %d  -->  %s l", self.i18n:getText("yt_yearLabel"), selectedOverviewData.highestYear, formatWithCommas(selectedOverviewData.highestYieldAmount)))
 
-        selectedCropTypeIcon:setImageFilename(cropIcon)
+        if cropIcon ~= nil and cropIcon ~= "" then
+            selectedCropTypeIcon:setImageFilename(cropIcon)
+        end
     end
 end
 
@@ -429,6 +685,11 @@ function YieldTrackerPage:setGraphData()
     local tickContainer = self:getDescendantById("graphYearTickContainer")
     local barGraph = self:getDescendantById("barGraph")
 
+    if tickContainer == nil or barGraph == nil or self.graphYearTickTemplate == nil or self.graphCandleTemplate == nil then
+        self:debugMessage("Graph elements are missing; skipping graph update")
+        return
+    end
+
     self:clearOldElements(tickContainer, self.graphYearTickTemplate)
     self:clearOldElements(barGraph, self.graphCandleTemplate)
 
@@ -439,42 +700,40 @@ function YieldTrackerPage:setGraphData()
     local actualMaxYear = years[#years]
 
     local displayMinYear, displayMaxYear = self:calculateDisplayRange(actualMinYear, actualMaxYear)
-
     local harvestByYear = self:createHarvestLookup(self.yieldYears, displayMinYear, displayMaxYear)
 
     local maxYield = self:findMaxYield(harvestByYear, displayMinYear, displayMaxYear)
-    local minYield = self:findMinYield(harvestByYear, displayMinYear, displayMaxYear)
-    local yieldRange = math.max(1, maxYield - minYield)
 
     local numTicks = displayMaxYear - displayMinYear + 1
-    local totalGraphWidth = 0.42
-    local spacing = totalGraphWidth / math.max(1, numTicks - 1)
 
-
+    -- Matches the cleaned right-side XML graph width. Keep left selection layout untouched.
+    local graphPaddingX = 0.012
+    local graphContentWidth = 0.376
+    local spacing = graphContentWidth / math.max(1, numTicks - 1)
+    local candleWidth = 0.011
+    local minHeight = 0.035
+    local maxHeight = 0.215
 
     for year = displayMinYear, displayMaxYear do
-        local tickX = (year - displayMinYear) * spacing
+        local tickX = graphPaddingX + (year - displayMinYear) * spacing
 
-        -- Year tick label
         local tickClone = self.graphYearTickTemplate:clone(tickContainer)
         tickClone:setText(tostring(year))
         tickClone:setPosition(tickX, 0)
         tickClone:setVisible(true)
 
-        -- Yield candle if data exists for this year
         local harvest = harvestByYear[year]
         if harvest then
             local yearYieldAmount = harvest.amount or 0
 
-            if yearYieldAmount and yearYieldAmount > 0 then
+            if yearYieldAmount > 0 then
                 local candleClone = self.graphCandleTemplate:clone(barGraph)
-                local minHeight = 0.08
-                local heightRatio = (yearYieldAmount - minYield) / yieldRange
-                -- heightRatio = math.sqrt(heightRatio) -- apply easing
-                local candleHeight = minHeight + heightRatio * (0.27 - minHeight)
+                local heightRatio = maxYield > 0 and (yearYieldAmount / maxYield) or 0
+                heightRatio = math.max(0, math.min(1, heightRatio))
+                local candleHeight = minHeight + heightRatio * (maxHeight - minHeight)
 
-                candleClone:setSize(0.01, candleHeight)
-                candleClone:setPosition(tickX + 0.0185, 0)
+                candleClone:setSize(candleWidth, candleHeight)
+                candleClone:setPosition(tickX - (candleWidth * 0.5), 0)
                 candleClone:setVisible(true)
             end
         end
@@ -497,11 +756,11 @@ function YieldTrackerPage:populateCellForItemInSection(list, sectionIndex, index
             local icon = listItem:getAttribute("icon")
 
             if cropListText then
-                local cropKey = crop.title:lower():gsub(" ", "") .. "Label"
-                cropListText:setText(self.i18n:getText(cropKey) or crop.title)
+                -- Use the registered fill type title directly. No custom translation entry required.
+                cropListText:setText(crop.title or crop.name or "")
             end
 
-            if icon then
+            if icon and crop.hudOverlayFilename ~= nil and crop.hudOverlayFilename ~= "" then
                 icon:setImageFilename(crop.hudOverlayFilename)
             end
         end
