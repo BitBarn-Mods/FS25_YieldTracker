@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<modDesc descVersion="100">
+<modDesc descVersion="113">
 <author>BitBarn Mods / Knowen</author>
-<version>1.0.1.4</version>
+<version>1.0.1.10</version>
 <title>
 <en>Yield Tracker</en>
 <de>Ertrags-Tracker</de>
@@ -16,15 +16,15 @@ YieldTracker helps you keep track of your harvests across different fields and y
 
 Works with both AI workers and contract jobs.
 
-Supported Fill Types (19):
+Examples of harvested materials (selection follows the map):
 - Barley
 - Canola
 - Chaff
 - Corn
 - Cotton
-- Grass (baler only)
+- Grass
 - Green Beans
-- Hay (baler only)
+- Hay
 - Long Grain Rice
 - Oat
 - Peas
@@ -33,7 +33,7 @@ Supported Fill Types (19):
 - Sorghum
 - Soybeans
 - Spinach
-- Straw (baler only)
+- Straw
 - Sunflowers
 - Wheat
 
@@ -57,15 +57,15 @@ YieldTracker hilft dir, deine Ernteerträge über verschiedene Felder und Jahre 
 
 Funktioniert sowohl mit Helfern als auch mit Aufträgen.
 
-Unterstützte Fülltypen (19):
+Beispiele für Erntegüter (Auswahl abhängig von der Karte):
 - Baumwolle
 - Chaff
 - Erbsen
 - Gerste
-- Gras (nur Ballenpresse)
+- Gras
 - Grüne Bohnen
 - Hafer
-- Heu (nur Ballenpresse)
+- Heu
 - Häckselgut
 - Kartoffeln
 - Langkornreis
@@ -75,7 +75,7 @@ Unterstützte Fülltypen (19):
 - Sojabohnen
 - Sorghum
 - Spinat
-- Stroh (nur Ballenpresse)
+- Stroh
 - Weizen
 - Sonnenblumen
 
@@ -99,15 +99,15 @@ YieldTracker vous aide à suivre vos rendements de récolte sur différents cham
 
 Fonctionne avec les ouvriers IA ainsi que les contrats.
 
-Types de remplissage pris en charge (19) :
+Exemples de récoltes (sélection selon la carte) :
 - Coton
 - Chaff
 - Pois
 - Orge
-- Herbe (pressage uniquement)
+- Herbe
 - Haricots verts
 - Avoine
-- Foin (pressage uniquement)
+- Foin
 - Ensilage
 - Pommes de terre
 - Riz long grain
@@ -117,7 +117,7 @@ Types de remplissage pris en charge (19) :
 - Soja
 - Sorgho
 - Épinards
-- Paille (pressage uniquement)
+- Paille
 - Blé
 - Tournesols
 

@@ -1,18 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <l10n>
-    <texts>
-        <text name="yt_modName" text="Śledzenie plonów"/>
-        <text name="yt_selectFieldLabel" text="Wybierz pole"/>
-        <text name="yt_selectCropLabel" text="Wybierz uprawę"/>
-        <text name="yt_overviewLabel" text="Przegląd"/>
-        <text name="yt_totalYieldLabel" text="Całkowity plon"/>
-        <text name="yt_graphTitle" text="Ostatnie 20 lat"/>
-        <text name="yt_noYieldHistoryMsg" text="Brak historii plonów"/>
-        <text name="yt_fieldIDLabel" text="Pole"/>
-        <text name="yt_yearLabel" text="Rok"/>
-        <text name="yt_cropTypeLabel" text="Rodzaj uprawy:"/>
-        <text name="yt_totalHarvestsLabel" text="Całkowite zbiory:"/>
-        <text name="yt_averageYearTitleLabel" text="Średni plon:"/>
-        <text name="yt_bestYearLabel" text="Najlepszy rok:"/>
-    </texts>
+  <texts>
+    <text name="yt_modName" text="Przegląd plonów" />
+    <text name="yt_selectFieldLabel" text="Pole / działka" />
+    <text name="yt_selectCropLabel" text="Uprawa / zbiory" />
+    <text name="yt_overviewLabel" text="Przegląd" />
+    <text name="yt_totalYieldLabel" text="Łączna ilość" />
+    <text name="yt_graphTitle" text="Plony według lat · litry" />
+    <text name="yt_noYieldHistoryMsg" text="Brak danych dla tego wyboru." />
+    <text name="yt_fieldIDLabel" text="Pole" />
+    <text name="yt_yearLabel" text="Rok" />
+    <text name="yt_cropTypeLabel" text="Rodzaj uprawy:" />
+    <text name="yt_totalHarvestsLabel" text="Całkowite zbiory:" />
+    <text name="yt_averageYearTitleLabel" text="Średnia / rok zbiorów" />
+    <text name="yt_bestYearLabel" text="Najlepszy rok" />
+    <text name="yt_areaLabel" text="Powierzchnia" />
+    <text name="yt_noFields" text="Brak działek w tym wyborze." />
+    <text name="yt_noCrops" text="Brak dostępnych zbiorów." />
+    <text name="yt_showOwned" text="Tylko własne działki" />
+    <text name="yt_showAll" text="Pokaż wszystkie działki" />
+    <text name="yt_selectPrompt" text="Wybierz pole i uprawę" />
+    <text name="yt_statsNote" text="%d lat zbiorów · Najlepszy rok: %s" />
+    <text name="yt_scale" text="Skala: 0 – %s · Lata %s–%s" />
+    <text name="yt_historyNote" text="Powierzchnia działki ≠ obszar zbiorów · Średnia tylko z lat ze zbiorami." />
+    <text name="yt_resetSelection" text="Wyczyść wybór" />
+  </texts>
 </l10n>

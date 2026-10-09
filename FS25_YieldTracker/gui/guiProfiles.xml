@@ -1,151 +1,120 @@
-<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <GUIProfiles>
-    <Profile name="mainContainer" extends="fs25_menuContainer" with="anchorMiddleLeft">
-        <position value="0.07 -0.03" />
-    </Profile>
-
-    <Profile name="yieldTrackerListItem" extends="baseReference" with="anchorTopStretchingX alternating">
-        <height value="32px"/>
-        <imageColor value="$preset_fs25_colorGrey" />
-        <imageSelectedColor value="$preset_fs25_colorMainHighlight" />
-        <alternateBackgroundColor value="$preset_fs25_colorGreyDark_50" />
-    </Profile> 
-   
-    <Profile name="yieldTrackerMenuHeaderIcon" extends="baseReference" with="anchorMiddleCenter">
-        <size value="75px 75px" />
-        <imageSliceId value="noSlice"/>
-        <!-- <imageColor value="$preset_fs25_colorMainDark" /> -->
-        <!-- <imageSliceId value="gui.icon_ingameMenu_prices" /> -->
-    </Profile>
-
-    <Profile name="statsBoxHeader" extends="fs25_statisticsHeaderBox" />
-
-    <Profile name="yieldTrackerContentRoot" extends="fs25_statisticsHeaderBox">
-        <size value="0.83 0.70" />
-    </Profile>
-
-    <Profile name="highlightedSeperator" extends="fs25_lineSeparatorTopHighlighted"  />
-
-    <Profile name="nonHighlightedSeperator" extends="fs25_lineSeparatorTop" with="anchorTopLeft" />
-
-    <profile name="fieldIDListContainer" extends="baseReference" with="anchorTopLeft">
-        <position value="0.0 0.0" />
-        <size value="0.12 0.70" />
-    </profile>
-
-    <profile name="cropSelectionContainer" extends="baseReference" with="anchorTopLeft">
-        <position value="0.16 0" />
-        <size value="0.12 0.70" />
-    </profile>
-
-    <profile name="yieldHistoryContainer" extends="baseReference" with="anchorTopLeft">
-        <position value="0.0 0.0" />
-        <size value="0.467 0.70" />
-    </profile>
-
-    <Profile name="selectCropRowImage" extends="baseReference" with="anchorMiddleLeft">
-        <size value="24px 24px"/>
-        <position value="8px 0"/>
-        <imageSliceId value="noSlice"/>
-    </Profile>
-
-    <Profile name="taskListDueNowText" extends="fs25_statisticsHeaderText" with="anchorTopLeft" />
-
-    <Profile name="itemListText" extends="baseReference" with="anchorStretchingYLeft">
-        <textBold value="true" />
-        <textSize value="15px" />
-        <textAlignment value="left" />
-        <textColor value="$preset_fs25_colorMainLight" />
-        <textSelectedColor value="$preset_fs25_colorMainDark" />
-        <textDisabledColor value="$preset_colorDisabled" />
-    </Profile>
-
-    <Profile name="yieldStatItemListText" extends="baseReference" >
-        <textBold value="false" />
-        <textSize value="15px" />
-        <textColor value="$preset_fs25_colorMainLight" />
-        <textSelectedColor value="$preset_fs25_colorMainDark" />
-        <textDisabledColor value="$preset_colorDisabled" />
-    </Profile>
-
-    <Profile name="taskListGroupsSliderBox" extends="fs25_listSliderBox" with="anchorTopLeft" />
-
-    <Profile name="verticalSeperator" extends="fs25_pricesSeparator" with="anchorTopLeft">
-        <position value="0.03 0.0" />
-        <size value="0.0012 0.70" />
-    </Profile>
-
-    <Profile name="taskListHeader" extends="baseReference">
-        <imageColor value="0 0 0 0" />
-        <textFocusedColor value="$preset_fs25_colorMainHighlight" />
-        <textHighlightedColor value="$preset_fs25_colorMainHighlight" />
-        <textSize value="16px" />
-        <textBold value="true" />
-        <textUpperCase value="true" />
-        <textColor value="$preset_colorWhite_50" />
-        <textAlignment value="left" />
-        <textDisabledColor value="$preset_colorDisabled" />
-    </Profile>
-
-    <Profile name="taskListHeaderDynamic" extends="taskListHeader">
-        <textSize value="22px" />
-        <textColor value="$preset_fs25_colorMainHighlight" />
-    </Profile>
-
-    <Profile name="selectedFieldNumText" extends="baseReference" with="anchorTopLeft">
-        <textSize value="26px" />
-        <textUpperCase value="true" />
-        <textAlignment value="left" />
-        <position value="0.015 -0.015" />
-        <size value="0.16 0.03" />
-        <textBold value="true" />
-        <textColor value="$preset_fs25_colorMainHighlight" />
-    </Profile>
-
-    <Profile name="overviewNonHighlightedSeperator" extends="fs25_lineSeparatorTop" with="anchorTopLeft">
-        <position value="0.0 -0.045" />
-    </Profile>
-
-    <Profile name="statsBoxLabels" extends="baseReference" with="anchorTopLeft">
-        <textSize value="14px" />
-        <textBold value="true" />
-        <textColor value="$preset_colorWhite_50" />
-        <textAlignment value="left" />
-        <size value="0.16 0.022" />
-    </Profile>
-
-    <Profile name="statsBoxResults" extends="baseReference" with="anchorTopLeft">
-        <textSize value="18px" />
-        <textBold value="true" />
-        <textColor value="$preset_colorWhite" />
-        <textAlignment value="left" />
-        <size value="0.16 0.023" />
-    </Profile>
-
-    <Profile name="statsBoxselectedCropIcon" extends="baseReference" with="anchorTopLeft">
-        <size value="18px 18px"/>
-        <imageSliceId value="noSlice"/>
-    </Profile>
-
-    <Profile name="fluctuationsGraph" with="anchorTopLeft" />
-
-    <Profile name="graphCandleTemplate" extends="fs25_pricesSeparator" with="anchorTopLeft">
-        <imageColor value="$preset_fs25_colorMainHighlight" />
-    </Profile>
-
-    <Profile name="graphYearTickContainer" with="anchorTopLeft" />
-
-    <Profile name="graphYearTickTemplate" extends="fs25_statisticsHeaderText" with="anchorTopLeft">
-        <textSize value="14px" />
-    </Profile>
-
-    <Profile name="yieldListContainer" with="anchorTopLeft" />
-
-    <Profile name="statsBox" extends="fs25_shopMoneyBoxBg" with="anchorTopLeft" />
-
-    <Profile name="noYieldHistoryAlert" extends="ingameMenuNoContentText">
-        <textColor value="0.886 0.141 0.101 1" />
-    </Profile>
-
-
+  <Profile name="ytContent" extends="fs25_statisticsHeaderBox">
+    <size value="1385px 840px" />
+    <width value="1385px" />
+    <height value="840px" />
+  </Profile>
+  <Profile name="ytPanel" extends="baseReference" with="anchorTopLeft">
+    <size value="350px 700px" />
+    <width value="350px" />
+    <height value="700px" />
+  </Profile>
+  <Profile name="ytText" extends="baseReference" with="anchorTopLeft">
+    <size value="350px 28px" />
+    <textSize value="16px" />
+    <textColor value="$preset_fs25_colorMainLight" />
+    <textVerticalAlignment value="middle" />
+    <textAlignment value="left" />
+    <textOverflowMode value="truncate" />
+    <width value="350px" />
+    <height value="28px" />
+  </Profile>
+  <Profile name="ytHeader" extends="ytText" with="anchorTopLeft">
+    <textBold value="true" />
+    <textUpperCase value="true" />
+    <textColor value="$preset_colorWhite_50" />
+  </Profile>
+  <Profile name="ytTitle" extends="ytText" with="anchorTopLeft">
+    <textSize value="25px" />
+    <textBold value="true" />
+    <textColor value="$preset_fs25_colorMainHighlight" />
+  </Profile>
+  <Profile name="ytValue" extends="ytText" with="anchorTopLeft">
+    <textSize value="23px" />
+    <textBold value="true" />
+  </Profile>
+  <Profile name="ytNote" extends="ytText" with="anchorTopLeft">
+    <textSize value="14px" />
+    <textColor value="$preset_colorWhite_50" />
+  </Profile>
+  <Profile name="ytRule" extends="fs25_mapContextSeparator" with="anchorTopLeft">
+    <size value="350px 1px" />
+    <width value="350px" />
+    <height value="1px" />
+    <imageColor value="1 1 1 0.18" />
+  </Profile>
+  <Profile name="ytHeaderRule" extends="ytRule" with="anchorTopLeft">
+    <height value="3px" />
+    <imageColor value="$preset_fs25_colorMainHighlight" />
+  </Profile>
+  <Profile name="ytList" extends="baseReference" with="anchorTopLeft">
+    <size value="350px 252px" />
+    <selectOnClick value="true" />
+    <selectedWithoutFocus value="true" />
+    <width value="350px" />
+    <height value="252px" />
+  </Profile>
+  <Profile name="ytRow" extends="baseReference" with="anchorTopStretchingX alternating">
+    <height value="36px" />
+    <imageColor value="$preset_fs25_colorGrey" />
+    <imageSelectedColor value="$preset_fs25_colorMainHighlight" />
+    <alternateBackgroundColor value="$preset_fs25_colorGreyDark_50" />
+  </Profile>
+  <Profile name="ytSelectionRow" extends="ytRow" with="anchorTopStretchingX alternating">
+    <height value="32px" />
+  </Profile>
+  <Profile name="ytRowText" extends="ytText" with="anchorStretchingYLeft">
+    <position value="12px 0px" />
+    <size value="220px 36px" />
+    <textSelectedColor value="$preset_fs25_colorMainDark" />
+    <width value="220px" />
+    <height value="36px" />
+  </Profile>
+  <Profile name="ytIcon" extends="baseReference" with="anchorMiddleLeft">
+    <size value="24px 24px" />
+    <position value="10px 0px" />
+    <imageSliceId value="noSlice" />
+    <width value="24px" />
+    <height value="24px" />
+  </Profile>
+  <Profile name="ytHeaderIcon" extends="baseReference" with="anchorMiddleCenter">
+    <size value="75px 75px" />
+    <imageSliceId value="noSlice" />
+    <width value="75px" />
+    <height value="75px" />
+  </Profile>
+  <Profile name="ytButton" extends="fs25_mapContextSeparator" with="anchorTopLeft">
+    <size value="350px 44px" />
+    <width value="350px" />
+    <height value="44px" />
+    <margin value="0px 0px 0px 0px" />
+    <handleFocus value="true" />
+    <imageColor value="$preset_fs25_colorMainHighlight" />
+    <imageFocusedColor value="$preset_fs25_colorMainHighlight" />
+    <imageHighlightedColor value="0.8 0.95 0.45 1" />
+    <imagePressedColor value="0.7 0.85 0.35 1" />
+    <imageDisabledColor value="0.22 0.22 0.22 1" />
+    <textSize value="16px" />
+    <textBold value="true" />
+    <textColor value="$preset_fs25_colorMainDark" />
+    <textFocusedColor value="$preset_colorWhite" />
+    <textHighlightedColor value="$preset_fs25_colorMainDark" />
+    <textDisabledColor value="$preset_colorDisabled" />
+    <textAlignment value="center" />
+    <textVerticalAlignment value="middle" />
+  </Profile>
+  <Profile name="ytBar" extends="fs25_mapContextSeparator" with="anchorBottomLeft">
+    <size value="20px 1px" />
+    <width value="20px" />
+    <height value="1px" />
+    <imageColor value="$preset_fs25_colorMainHighlight" />
+  </Profile>
+  <Profile name="ytTick" extends="ytNote" with="anchorBottomLeft">
+    <size value="50px 24px" />
+    <textSize value="13px" />
+    <textAlignment value="center" />
+    <width value="50px" />
+    <height value="24px" />
+  </Profile>
 </GUIProfiles>

@@ -1,18 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <l10n>
-    <texts>
-        <text name="yt_modName" text="Monitorização de Rendimento"/>
-        <text name="yt_selectFieldLabel" text="Selecionar campo"/>
-        <text name="yt_selectCropLabel" text="Selecionar Cultura"/>
-        <text name="yt_overviewLabel" text="Visão Geral"/>
-        <text name="yt_totalYieldLabel" text="Rendimento Total"/>
-        <text name="yt_graphTitle" text="Últimos 20 Anos"/>
-        <text name="yt_noYieldHistoryMsg" text="Sem Histórico de Rendimentos"/>
-        <text name="yt_fieldIDLabel" text="Campo"/>
-        <text name="yt_yearLabel" text="Ano"/>
-        <text name="yt_cropTypeLabel" text="Tipo de Cultura:"/>
-        <text name="yt_totalHarvestsLabel" text="Total de Colheitas:"/>
-        <text name="yt_averageYearTitleLabel" text="Rendimento Médio:"/>
-        <text name="yt_bestYearLabel" text="Melhor Ano:"/>
-    </texts>
+  <texts>
+    <text name="yt_modName" text="Resumo das colheitas" />
+    <text name="yt_selectFieldLabel" text="Campo / terreno" />
+    <text name="yt_selectCropLabel" text="Cultura / colheita" />
+    <text name="yt_overviewLabel" text="Visão Geral" />
+    <text name="yt_totalYieldLabel" text="Volume total" />
+    <text name="yt_graphTitle" text="Colheita por ano · litros" />
+    <text name="yt_noYieldHistoryMsg" text="Sem dados para esta seleção." />
+    <text name="yt_fieldIDLabel" text="Campo" />
+    <text name="yt_yearLabel" text="Ano" />
+    <text name="yt_cropTypeLabel" text="Tipo de Cultura:" />
+    <text name="yt_totalHarvestsLabel" text="Total de Colheitas:" />
+    <text name="yt_averageYearTitleLabel" text="Média / ano de colheita" />
+    <text name="yt_bestYearLabel" text="Melhor ano" />
+    <text name="yt_areaLabel" text="Área do terreno" />
+    <text name="yt_noFields" text="Sem terrenos nesta seleção." />
+    <text name="yt_noCrops" text="Sem culturas disponíveis." />
+    <text name="yt_showOwned" text="Apenas terrenos próprios" />
+    <text name="yt_showAll" text="Mostrar todos os terrenos" />
+    <text name="yt_selectPrompt" text="Selecione o campo e a cultura" />
+    <text name="yt_statsNote" text="%d anos de colheita · Melhor ano: %s" />
+    <text name="yt_scale" text="Escala: 0 – %s · Anos %s–%s" />
+    <text name="yt_historyNote" text="Área do terreno ≠ área colhida · Média apenas dos anos com colheita." />
+    <text name="yt_resetSelection" text="Limpar seleção" />
+  </texts>
 </l10n>

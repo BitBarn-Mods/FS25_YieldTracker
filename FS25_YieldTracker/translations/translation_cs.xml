@@ -1,18 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <l10n>
-    <texts>
-        <text name="yt_modName" text="Sledování výnosů"/>
-        <text name="yt_selectFieldLabel" text="Vyber pole"/>
-        <text name="yt_selectCropLabel" text="Vyber plodinu"/>
-        <text name="yt_overviewLabel" text="Přehled"/>
-        <text name="yt_totalYieldLabel" text="Celkový výnos"/>
-        <text name="yt_graphTitle" text="Posledních 20 let"/>
-        <text name="yt_noYieldHistoryMsg" text="Žádná data o výnosech"/>
-        <text name="yt_fieldIDLabel" text="Pole"/>
-        <text name="yt_yearLabel" text="Rok"/>
-        <text name="yt_cropTypeLabel" text="Druh plodiny:"/>
-        <text name="yt_totalHarvestsLabel" text="Celková sklizeň:"/>
-        <text name="yt_averageYearTitleLabel" text="Průměrný výnos:"/>
-        <text name="yt_bestYearLabel" text="Nejlepší rok:"/>
-    </texts>
+  <texts>
+    <text name="yt_modName" text="Přehled výnosů" />
+    <text name="yt_selectFieldLabel" text="Pole / pozemek" />
+    <text name="yt_selectCropLabel" text="Plodina / sklizeň" />
+    <text name="yt_overviewLabel" text="Přehled" />
+    <text name="yt_totalYieldLabel" text="Celkové množství" />
+    <text name="yt_graphTitle" text="Výnos podle let · litry" />
+    <text name="yt_noYieldHistoryMsg" text="Pro tento výběr nejsou údaje." />
+    <text name="yt_fieldIDLabel" text="Pole" />
+    <text name="yt_yearLabel" text="Rok" />
+    <text name="yt_cropTypeLabel" text="Druh plodiny:" />
+    <text name="yt_totalHarvestsLabel" text="Celková sklizeň:" />
+    <text name="yt_averageYearTitleLabel" text="Průměr / rok sklizně" />
+    <text name="yt_bestYearLabel" text="Nejlepší rok" />
+    <text name="yt_areaLabel" text="Plocha pozemku" />
+    <text name="yt_noFields" text="V tomto výběru nejsou pozemky." />
+    <text name="yt_noCrops" text="Nejsou dostupné plodiny." />
+    <text name="yt_showOwned" text="Pouze vlastní pozemky" />
+    <text name="yt_showAll" text="Zobrazit všechny pozemky" />
+    <text name="yt_selectPrompt" text="Vyberte pole a plodinu" />
+    <text name="yt_statsNote" text="%d let sklizně · Nejlepší rok: %s" />
+    <text name="yt_scale" text="Stupnice: 0 – %s · Roky %s–%s" />
+    <text name="yt_historyNote" text="Plocha pozemku ≠ sklizená plocha · Průměr pouze z let se sklizní." />
+    <text name="yt_resetSelection" text="Zrušit výběr" />
+  </texts>
 </l10n>

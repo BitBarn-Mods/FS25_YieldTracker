@@ -1,18 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <l10n>
-    <texts>
-        <text name="yt_modName" text="Yield Tracker"/>
-        <text name="yt_selectFieldLabel" text="Select Field"/>
-        <text name="yt_selectCropLabel" text="Select Crop"/>
-        <text name="yt_overviewLabel" text="Overview"/>
-        <text name="yt_totalYieldLabel" text="Total Yield"/>
-        <text name="yt_graphTitle" text="Last 20 Years"/>
-        <text name="yt_noYieldHistoryMsg" text="No Yield History"/>
-        <text name="yt_fieldIDLabel" text="Field"/>
-        <text name="yt_yearLabel" text="Year"/>
-        <text name="yt_cropTypeLabel" text="Crop Type:"/>
-        <text name="yt_totalHarvestsLabel" text="Total Harvests:"/>
-        <text name="yt_averageYearTitleLabel" text="Average Yield:"/>
-        <text name="yt_bestYearLabel" text="Best Year:"/>
-    </texts>
+  <texts>
+    <text name="yt_modName" text="Yield overview" />
+    <text name="yt_selectFieldLabel" text="Field / farmland" />
+    <text name="yt_selectCropLabel" text="Crop / harvested material" />
+    <text name="yt_overviewLabel" text="Overview" />
+    <text name="yt_totalYieldLabel" text="Total volume" />
+    <text name="yt_graphTitle" text="Yield by year · litres" />
+    <text name="yt_noYieldHistoryMsg" text="No yield data for this selection." />
+    <text name="yt_fieldIDLabel" text="Field" />
+    <text name="yt_yearLabel" text="Year" />
+    <text name="yt_cropTypeLabel" text="Crop Type:" />
+    <text name="yt_totalHarvestsLabel" text="Total Harvests:" />
+    <text name="yt_averageYearTitleLabel" text="Avg. / harvest year" />
+    <text name="yt_bestYearLabel" text="Best year" />
+    <text name="yt_areaLabel" text="Land area" />
+    <text name="yt_noFields" text="No farmland in this selection." />
+    <text name="yt_noCrops" text="No harvested materials available." />
+    <text name="yt_showOwned" text="Show owned farmland" />
+    <text name="yt_showAll" text="Show all farmland" />
+    <text name="yt_selectPrompt" text="Select field and crop" />
+    <text name="yt_statsNote" text="%d harvest years · Best year: %s" />
+    <text name="yt_scale" text="Scale: 0 – %s · Years %s–%s" />
+    <text name="yt_historyNote" text="Land area is not harvested area · Average includes only years with yield." />
+    <text name="yt_resetSelection" text="Clear selection" />
+  </texts>
 </l10n>

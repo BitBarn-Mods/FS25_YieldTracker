@@ -1,18 +1,28 @@
-<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <l10n>
-    <texts>
-        <text name="yt_modName" text="Ertrags-Tracker"/>
-        <text name="yt_selectFieldLabel" text="Feld auswählen"/>
-        <text name="yt_selectCropLabel" text="Frucht Auswählen"/>
-        <text name="yt_overviewLabel" text="Übersicht"/>
-        <text name="yt_totalYieldLabel" text="Gesamt­ertrag"/>
-        <text name="yt_graphTitle" text="Letzten 20 Jahren"/>
-        <text name="yt_noYieldHistoryMsg" text="Keine Renditehistorie"/>
-        <text name="yt_fieldIDLabel" text="Feld"/>
-        <text name="yt_yearLabel" text="Jahr"/>
-        <text name="yt_cropTypeLabel" text="Fruchtart:"/>
-        <text name="yt_totalHarvestsLabel" text="Gesamte Ernten:"/>
-        <text name="yt_averageYearTitleLabel" text="Durchschnittlicher Ertrag:"/>
-        <text name="yt_bestYearLabel" text="Bestes Jahr:"/>
-    </texts>
+  <texts>
+    <text name="yt_modName" text="Ertragsübersicht" />
+    <text name="yt_selectFieldLabel" text="Feld / Grundstück" />
+    <text name="yt_selectCropLabel" text="Frucht / Erntegut" />
+    <text name="yt_overviewLabel" text="Übersicht" />
+    <text name="yt_totalYieldLabel" text="Gesamtmenge" />
+    <text name="yt_graphTitle" text="Ertrag je Jahr · Liter" />
+    <text name="yt_noYieldHistoryMsg" text="Für diese Auswahl liegen keine Ertragsdaten vor." />
+    <text name="yt_fieldIDLabel" text="Feld" />
+    <text name="yt_yearLabel" text="Jahr" />
+    <text name="yt_cropTypeLabel" text="Fruchtart:" />
+    <text name="yt_totalHarvestsLabel" text="Gesamte Ernten:" />
+    <text name="yt_averageYearTitleLabel" text="Ø je Erntejahr" />
+    <text name="yt_bestYearLabel" text="Bestes Jahr" />
+    <text name="yt_areaLabel" text="Grundfläche" />
+    <text name="yt_noFields" text="Keine Grundstücke in dieser Auswahl." />
+    <text name="yt_noCrops" text="Keine Erntegüter verfügbar." />
+    <text name="yt_showOwned" text="Nur eigene Grundstücke" />
+    <text name="yt_showAll" text="Alle Grundstücke anzeigen" />
+    <text name="yt_selectPrompt" text="Feld und Erntegut auswählen" />
+    <text name="yt_statsNote" text="%d Erntejahre · Bestes Jahr: %s" />
+    <text name="yt_scale" text="Skala: 0 – %s · Jahre %s–%s" />
+    <text name="yt_historyNote" text="Grundstücksfläche ≠ Erntefläche · Jahresdurchschnitt nur über Jahre mit Ertrag." />
+    <text name="yt_resetSelection" text="Auswahl aufheben" />
+  </texts>
 </l10n>

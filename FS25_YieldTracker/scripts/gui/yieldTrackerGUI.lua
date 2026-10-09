@@ -34,7 +34,7 @@ local function moveElement(tbl, element, position)
     for i, v in ipairs(tbl) do
         if v == element then
             table.remove(tbl, i)
-            table.insert(tbl, position, element)
+            table.insert(tbl, math.min(math.max(1, position), #tbl + 1), element)
             break
         end
     end
@@ -44,6 +44,9 @@ end
 ---Loads GUI profiles, creates the GUI page, and inserts it into the in-game menu.
 function YieldTrackerGUI:setup()
     local inGameMenu = g_gui.screenControllers[InGameMenu]
+    if inGameMenu == nil or inGameMenu.yieldTrackerPage ~= nil then
+        return
+    end
 
     -- Load custom GUI styles from XML
     g_gui:loadProfiles(self.dir .. "gui/guiProfiles.xml")
@@ -84,7 +87,8 @@ function YieldTrackerGUI.fixInGameMenu(frame, pageName, uvs, position, predicate
     for i, page in ipairs(inGameMenu.pagingElement.pages) do
         if page.element == frame then
             table.remove(inGameMenu.pagingElement.pages, i)
-            table.insert(inGameMenu.pagingElement.pages, abovePrices, page)
+            table.insert(inGameMenu.pagingElement.pages,
+                math.min(abovePrices, #inGameMenu.pagingElement.pages + 1), page)
             break
         end
     end

@@ -1,111 +1,109 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<GUI name="YieldTrackerPage" returnScreenCallback="onClickBack">
-    <GuiElement profile="fs25_menuContainer">
-
-        <GuiElement profile="fs25_menuHeaderPanel" size="0.805 0.1" position="0.0 0.074">
-            <Bitmap profile="fs25_menuHeaderIconBg">
-                <Bitmap profile="yieldTrackerMenuHeaderIcon" id="pageHeaderIcon"/>
-            </Bitmap>
-            <Text profile="fs25_menuHeaderTitle" id="categoryHeaderText" text="$l10n_yt_modName"/>
-        </GuiElement>
-
-        <ThreePartBitmap profile="highlightedSeperator" size="0.83 0.003"/>
-
-        <!--
-            Important:
-            This root uses the same base positioning as the working TSStockCheck page:
-            fs25_statisticsHeaderBox. A raw GuiElement without this profile is anchored
-            differently and caused the whole content grid to appear too far right.
-        -->
-        <GuiElement profile="yieldTrackerContentRoot">
-
-            <!-- LEFT HALF: field + crop selection -->
-            <GuiElement size="0.405 0.66" position="0.000 -0.455">
-
-                <GuiElement profile="statsBoxHeader" size="0.405 0.035" position="0.000 0.000">
-                    <Button profile="taskListHeader" position="0.000 0.000" size="0.195 1" text="$l10n_yt_selectFieldLabel" textAlignment="center" handleFocus="false"/>
-                    <Button profile="taskListHeader" position="0.210 0.000" size="0.195 1" text="$l10n_yt_selectCropLabel" textAlignment="center" handleFocus="false"/>
-                    <ThreePartBitmap profile="nonHighlightedSeperator"/>
-                </GuiElement>
-
-                <GuiElement profile="fieldIDListContainer" position="0.000 -0.045" size="0.195 0.615">
-                    <SmoothList id="farmlandList" size="100% 100%" visible="true">
-                        <ListItem profile="yieldTrackerListItem" name="default" onClick="onClickFieldSelected">
-                            <Text profile="itemListText" name="fieldIDListText" textAlignment="center" textVerticalAlignment="center" position="0 0" size="100% 100%"/>
-                        </ListItem>
-                    </SmoothList>
-                    <ThreePartBitmap profile="taskListGroupsSliderBox">
-                        <Slider profile="fs25_listSlider" dataElementId="farmlandList"/>
-                    </ThreePartBitmap>
-                </GuiElement>
-
-                <GuiElement profile="cropSelectionContainer" position="0.210 -0.045" size="0.195 0.615">
-                    <SmoothList id="cropList" size="100% 100%" visible="true">
-                        <ListItem profile="yieldTrackerListItem" name="default" onClick="onClickCropSelected">
-                            <Bitmap profile="selectCropRowImage" name="icon"/>
-                            <Text profile="itemListText" name="cropListText" textAlignment="center" textVerticalAlignment="center" position="0 0" size="100% 100%"/>
-                        </ListItem>
-                    </SmoothList>
-                    <Bitmap profile="verticalSeperator"/>
-                </GuiElement>
-            </GuiElement>
-
-            <!-- RIGHT HALF: details + graph -->
-            <GuiElement profile="yieldHistoryContainer" position="0.430 0.000" size="0.400 0.66">
-
-                <GuiElement profile="statsBoxHeader" size="0.400 0.035" position="0.000 0.000">
-                    <Button profile="taskListHeader" position="0.000 0.000" size="0.165 1" text="$l10n_yt_overviewLabel" textAlignment="center" handleFocus="false"/>
-                    <Button profile="taskListHeader" position="0.175 0.000" size="0.095 1" text="$l10n_yt_yearLabel" textAlignment="center" handleFocus="false"/>
-                    <Button profile="taskListHeader" position="0.275 0.000" size="0.125 1" text="$l10n_yt_totalYieldLabel" textAlignment="center" handleFocus="false"/>
-                    <ThreePartBitmap profile="nonHighlightedSeperator"/>
-                </GuiElement>
-
-                <GuiElement id="yieldStatsInformation" size="0.400 0.615" position="0.000 -0.045" visible="true">
-
-                    <RoundCorner profile="statsBox" id="shopMoneyBoxBg" position="0.000 0.000" size="0.165 0.300">
-                        <Text profile="selectedFieldNumText" id="selectedFieldNumText" textVerticalAlignment="top"/>
-                        <ThreePartBitmap profile="overviewNonHighlightedSeperator"/>
-
-                        <Text profile="statsBoxLabels" position="0.015 -0.070" text="$l10n_yt_cropTypeLabel" textVerticalAlignment="top"/>
-                        <Bitmap profile="statsBoxselectedCropIcon" id="selectedCropicon" position="0.015 -0.088"/>
-                        <Text profile="statsBoxResults" id="selectedCropTypeText" position="0.027 -0.088" textVerticalAlignment="top"/>
-
-                        <Text profile="statsBoxLabels" position="0.015 -0.130" text="$l10n_yt_totalHarvestsLabel" textVerticalAlignment="top"/>
-                        <Text profile="statsBoxResults" id="selectedCropTotalHarvests" position="0.015 -0.148" textVerticalAlignment="top"/>
-
-                        <Text profile="statsBoxLabels" position="0.015 -0.190" text="$l10n_yt_averageYearTitleLabel" textVerticalAlignment="top"/>
-                        <Text profile="statsBoxResults" id="selectedCropAverageYield" position="0.015 -0.208" textVerticalAlignment="top"/>
-
-                        <Text profile="statsBoxLabels" position="0.015 -0.250" text="$l10n_yt_bestYearLabel" textVerticalAlignment="top"/>
-                        <Text profile="statsBoxResults" id="selectedCropBestYear" position="0.015 -0.268" textVerticalAlignment="top"/>
-                    </RoundCorner>
-
-                    <GuiElement profile="yieldListContainer" position="0.175 0.000" size="0.225 0.300">
-                        <SmoothList id="yieldPerYearList" size="100% 100%" visible="true">
-                            <ListItem profile="yieldTrackerListItem" name="default" allowSelected="false">
-                                <Text profile="yieldStatItemListText" name="year" textAlignment="left" textVerticalAlignment="center" position="0.010 0" size="45% 100%"/>
-                                <Text profile="yieldStatItemListText" name="yieldAmt" textAlignment="right" textVerticalAlignment="center" position="-0.010 0" size="100% 100%"/>
-                            </ListItem>
-                        </SmoothList>
-                        <ThreePartBitmap profile="taskListGroupsSliderBox">
-                            <Slider profile="fs25_listSlider" dataElementId="yieldPerYearList"/>
-                        </ThreePartBitmap>
-                    </GuiElement>
-
-                    <Text profile="fs25_statisticsHeaderText" text="$l10n_yt_graphTitle" position="0.000 -0.335"/>
-
-                    <GuiElement profile="fluctuationsGraph" id="barGraph" position="0.000 -0.375" size="0.400 0.230" hasFrame="true" frameThickness="1px 0px 0px 1px" frameLeftColor="0.4 0.4 0.4 1" frameBottomColor="0.4 0.4 0.4 1">
-                        <Bitmap profile="graphCandleTemplate" id="graphCandleTemplate" visible="false"/>
-                    </GuiElement>
-
-                    <GuiElement profile="graphYearTickContainer" id="graphYearTickContainer" position="0.000 -0.610" size="0.400 0.030">
-                        <Text profile="graphYearTickTemplate" id="graphYearTickTemplate" visible="false"/>
-                    </GuiElement>
-                </GuiElement>
-
-                <Text profile="noYieldHistoryAlert" text="$l10n_yt_noYieldHistoryMsg" id="noYieldHistoryText" position="0.000 -0.100" size="100% 0.050" visible="false"/>
-            </GuiElement>
-
-        </GuiElement>
+<?xml version='1.0' encoding='utf-8'?>
+<GUI name="YieldTrackerPage">
+  <GuiElement profile="fs25_menuContainer">
+    <GuiElement profile="fs25_menuHeaderPanel">
+      <Bitmap profile="fs25_menuHeaderIconBg">
+        <Bitmap profile="ytHeaderIcon" id="pageHeaderIcon" />
+      </Bitmap>
+      <Text profile="fs25_menuHeaderTitle" text="$l10n_yt_modName" />
     </GuiElement>
+    <ThreePartBitmap profile="fs25_lineSeparatorTopHighlighted" />
+    <GuiElement profile="ytContent">
+      <GuiElement profile="ytPanel" size="350px 840px" width="350px" height="840px">
+        <Text profile="ytHeader" position="0px 0px" size="220px 28px" text="$l10n_yt_selectFieldLabel" width="220px" height="28px" />
+        <Text profile="ytHeader" position="220px 0px" size="130px 28px" textAlignment="right" text="$l10n_yt_areaLabel" width="130px" height="28px" />
+        <Bitmap profile="ytHeaderRule" position="0px -34px" size="350px 3px" width="350px" height="3px" />
+        <SmoothList profile="ytList" id="farmlandList" position="0px -36px" size="350px 320px" onClick="onClickSelection" width="350px" height="320px" selectOnClick="false" onDoubleClick="onClickSelection">
+          <ListItem profile="ytSelectionRow" name="default">
+            <Text profile="ytRowText" name="field" size="220px 32px" width="220px" height="32px" />
+            <Text profile="ytRowText" name="area" position="228px 0px" size="110px 32px" textAlignment="right" width="110px" height="32px" />
+          </ListItem>
+        </SmoothList>
+        <Text profile="ytNote" position="12px -60px" size="328px 50px" id="emptyFieldsText" text="$l10n_yt_noFields" width="328px" height="50px" />
+        <Button profile="ytButton" id="fieldFilterButton" position="0px -364px" onClick="onClickToggleOwned" />
+        <Button profile="ytButton" id="resetSelectionButton" position="0px -416px" text="$l10n_yt_resetSelection" onClick="onClickResetSelection" />
+        <Text profile="ytHeader" position="0px -472px" size="350px 28px" text="$l10n_yt_selectCropLabel" width="350px" height="28px" />
+        <Bitmap profile="ytHeaderRule" position="0px -502px" size="350px 3px" width="350px" height="3px" />
+        <SmoothList profile="ytList" id="cropList" position="0px -512px" size="350px 320px" onClick="onClickSelection" width="350px" height="320px" selectOnClick="false" onDoubleClick="onClickSelection">
+          <ListItem profile="ytSelectionRow" name="default">
+            <Bitmap profile="ytIcon" name="icon" />
+            <Text profile="ytRowText" name="crop" position="44px 0px" size="294px 32px" width="294px" height="32px" />
+          </ListItem>
+        </SmoothList>
+        <Text profile="ytNote" position="12px -530px" size="328px 50px" id="emptyCropsText" text="$l10n_yt_noCrops" width="328px" height="50px" />
+      </GuiElement>
+      <GuiElement profile="ytPanel" position="400px 0px" size="985px 700px" width="985px" height="700px">
+        <Text profile="ytTitle" position="0px 0px" size="985px 36px" id="detailTitle" width="985px" height="36px" />
+        <Bitmap profile="ytHeaderRule" position="0px -44px" size="985px 3px" width="985px" height="3px" />
+        <Text profile="ytHeader" position="0px -62px" size="310px 26px" text="$l10n_yt_totalYieldLabel" width="310px" height="26px" />
+        <Text profile="ytValue" position="0px -94px" size="310px 34px" id="totalText" width="310px" height="34px" />
+        <Text profile="ytHeader" position="335px -62px" size="310px 26px" text="$l10n_yt_averageYearTitleLabel" width="310px" height="26px" />
+        <Text profile="ytValue" position="335px -94px" size="310px 34px" id="averageText" width="310px" height="34px" />
+        <Text profile="ytHeader" position="670px -62px" size="310px 26px" text="$l10n_yt_bestYearLabel" width="310px" height="26px" />
+        <Text profile="ytValue" position="670px -94px" size="310px 34px" id="bestText" width="310px" height="34px" />
+        <Text profile="ytNote" position="0px -140px" size="985px 26px" id="statsNote" width="985px" height="26px" />
+        <Bitmap profile="ytRule" position="0px -180px" size="985px 1px" width="985px" height="1px" />
+        <Text profile="ytHeader" position="0px -196px" size="80px 28px" text="$l10n_yt_yearLabel" width="80px" height="28px" />
+        <Text profile="ytHeader" position="80px -196px" size="190px 28px" textAlignment="right" text="$l10n_yt_totalYieldLabel" width="190px" height="28px" />
+        <SmoothList profile="ytList" id="yieldPerYearList" position="0px -236px" size="270px 396px" width="270px" height="396px">
+          <ListItem profile="ytRow" name="default">
+            <Text profile="ytRowText" name="year" size="70px 36px" width="70px" height="36px" />
+            <Text profile="ytRowText" name="amount" position="80px 0px" size="180px 36px" textAlignment="right" width="180px" height="36px" />
+          </ListItem>
+        </SmoothList>
+        <GuiElement profile="ytPanel" position="310px -196px" size="675px 460px" width="675px" height="460px">
+          <Text profile="ytHeader" position="0px 0px" size="675px 28px" id="graphTitle" text="$l10n_yt_graphTitle" width="675px" height="28px" />
+          <Text profile="ytNote" position="0px -38px" size="675px 24px" id="scaleText" width="675px" height="24px" />
+          <GuiElement profile="ytPanel" id="barGraph" position="0px -80px" size="675px 340px" width="675px" height="340px">
+            <Bitmap profile="ytRule" position="0px -0px" size="675px 1px" width="675px" height="1px" />
+            <Bitmap profile="ytRule" position="0px -85px" size="675px 1px" width="675px" height="1px" />
+            <Bitmap profile="ytRule" position="0px -170px" size="675px 1px" width="675px" height="1px" />
+            <Bitmap profile="ytRule" position="0px -255px" size="675px 1px" width="675px" height="1px" />
+            <Bitmap profile="ytRule" position="0px -340px" size="675px 1px" width="675px" height="1px" />
+            <Bitmap profile="ytBar" id="bar1" visible="false" />
+            <Text profile="ytTick" id="tick1" visible="false" />
+            <Bitmap profile="ytBar" id="bar2" visible="false" />
+            <Text profile="ytTick" id="tick2" visible="false" />
+            <Bitmap profile="ytBar" id="bar3" visible="false" />
+            <Text profile="ytTick" id="tick3" visible="false" />
+            <Bitmap profile="ytBar" id="bar4" visible="false" />
+            <Text profile="ytTick" id="tick4" visible="false" />
+            <Bitmap profile="ytBar" id="bar5" visible="false" />
+            <Text profile="ytTick" id="tick5" visible="false" />
+            <Bitmap profile="ytBar" id="bar6" visible="false" />
+            <Text profile="ytTick" id="tick6" visible="false" />
+            <Bitmap profile="ytBar" id="bar7" visible="false" />
+            <Text profile="ytTick" id="tick7" visible="false" />
+            <Bitmap profile="ytBar" id="bar8" visible="false" />
+            <Text profile="ytTick" id="tick8" visible="false" />
+            <Bitmap profile="ytBar" id="bar9" visible="false" />
+            <Text profile="ytTick" id="tick9" visible="false" />
+            <Bitmap profile="ytBar" id="bar10" visible="false" />
+            <Text profile="ytTick" id="tick10" visible="false" />
+            <Bitmap profile="ytBar" id="bar11" visible="false" />
+            <Text profile="ytTick" id="tick11" visible="false" />
+            <Bitmap profile="ytBar" id="bar12" visible="false" />
+            <Text profile="ytTick" id="tick12" visible="false" />
+            <Bitmap profile="ytBar" id="bar13" visible="false" />
+            <Text profile="ytTick" id="tick13" visible="false" />
+            <Bitmap profile="ytBar" id="bar14" visible="false" />
+            <Text profile="ytTick" id="tick14" visible="false" />
+            <Bitmap profile="ytBar" id="bar15" visible="false" />
+            <Text profile="ytTick" id="tick15" visible="false" />
+            <Bitmap profile="ytBar" id="bar16" visible="false" />
+            <Text profile="ytTick" id="tick16" visible="false" />
+            <Bitmap profile="ytBar" id="bar17" visible="false" />
+            <Text profile="ytTick" id="tick17" visible="false" />
+            <Bitmap profile="ytBar" id="bar18" visible="false" />
+            <Text profile="ytTick" id="tick18" visible="false" />
+            <Bitmap profile="ytBar" id="bar19" visible="false" />
+            <Text profile="ytTick" id="tick19" visible="false" />
+            <Bitmap profile="ytBar" id="bar20" visible="false" />
+            <Text profile="ytTick" id="tick20" visible="false" />
+          </GuiElement>
+          <Text profile="ytNote" position="25px -180px" size="625px 70px" textAlignment="center" id="noYieldHistoryText" text="$l10n_yt_noYieldHistoryMsg" width="625px" height="70px" />
+        </GuiElement>
+      </GuiElement>
+    </GuiElement>
+  </GuiElement>
 </GUI>

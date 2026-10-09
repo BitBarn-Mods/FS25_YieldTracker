@@ -496,6 +496,15 @@ end
 
 -- Checks if a given fill type index is in the tracked crop types.
 function YieldTracker:isTrackedFillType(fillTypeIndex)
+    -- These harvested FillTypes are not necessarily registered as FruitTypes.
+    local desc = g_fillTypeManager ~= nil and g_fillTypeManager.indexToFillType ~= nil
+        and g_fillTypeManager.indexToFillType[fillTypeIndex] or nil
+    if desc ~= nil and (desc.name == "CHAFF" or desc.name == "DRYGRASS_WINDROW"
+        or desc.name == "STRAW" or desc.name == "STRAW_WINDROW"
+        or desc.name == "GRASS" or desc.name == "GRASS_WINDROW") then
+        return true
+    end
+
     if fillTypeIndex == nil then
         return false
     end
@@ -525,6 +534,7 @@ end
 
 ---Updates the yieldData table with the latest harvested amount. Also referenced during game save.
 function YieldTracker:recordHarvest(year, fieldId, cropName, amount, fillTypeIndex)
+    if not self:hasRegisteredField(fieldId) then return end
     self.yieldData[year] = self.yieldData[year] or {}
     self.yieldData[year][fieldId] = self.yieldData[year][fieldId] or {}
 
@@ -957,7 +967,7 @@ function YieldTracker:handlePipeDischargeTracking(vehicle, dt, beforeTargetObjec
     end
 
     local fieldID = self:getCutterFieldID(vehicle)
-    if fieldID == nil then
+    if not self:hasRegisteredField(fieldID) then
         return
     end
 
@@ -1071,11 +1081,32 @@ function YieldTracker:syncYieldDataEntry(year, fieldID, fillTypeIndex)
     self.yieldData[year][fieldID][fillTypeIndex].fillTypeTitle = self:getFillTypeTitle(fillTypeIndex)
 end
 
+-- Shared eligibility check for the GUI and all productive recording paths.
+-- No permanent cache: field links can still be loading or change with placeables.
+-- Farmland IDs and field IDs are different namespaces.
+function YieldTracker:hasRegisteredField(farmlandId)
+    if farmlandId == nil or farmlandId == 0 or g_fieldManager == nil then
+        return false
+    end
+    if g_fieldManager.farmlandIdFieldMapping ~= nil then
+        local field = g_fieldManager.farmlandIdFieldMapping[farmlandId]
+        return field ~= nil and field.farmland ~= nil and field.farmland.id == farmlandId
+    end
+    if g_fieldManager.getFields == nil then return false end
+    for _, field in pairs(g_fieldManager:getFields() or {}) do
+        if field.farmland ~= nil and field.farmland.id == farmlandId then
+            return true
+        end
+    end
+    return false
+end
+
 function YieldTracker:addPipeHarvestAmount(year, fieldID, fillTypeIndex, amount)
     amount = tonumber(amount or 0) or 0
     if year == nil or fieldID == nil or fillTypeIndex == nil or amount <= 0.001 then
         return
     end
+    if not self:hasRegisteredField(fieldID) then return end
 
     self.pipeBaseTotals = self.pipeBaseTotals or {}
     self.pipeBaseTotals[year] = self.pipeBaseTotals[year] or {}
@@ -1089,6 +1120,9 @@ function YieldTracker:updateCombineLiveTank(vehicle, fieldID, fillTypeIndex)
     if vehicle == nil or not self.yieldDataLoaded then
         return
     end
+    -- Do not move an existing field contribution onto a factory/road parcel,
+    -- or erase it merely because no registered field is currently available.
+    if not self:hasRegisteredField(fieldID) then return end
 
     local year = g_currentMission.environment.currentYear
     local vehicleId = vehicle.id or tostring(vehicle)
@@ -1155,7 +1189,7 @@ function YieldTracker:installCombineLiveTankTrackingHook()
             if fieldID ~= nil and activeFillType ~= nil and activeFillType ~= FillType.UNKNOWN and tracker:isTrackedFillType(activeFillType) then
                 tracker:updateCombineLiveTank(vehicle, fieldID, activeFillType)
             elseif currentLevel ~= nil and currentLevel <= 0.001 then
-                tracker:updateCombineLiveTank(vehicle, nil, nil)
+                tracker:updateCombineLiveTank(vehicle, fieldID, nil)
             end
         end
 
